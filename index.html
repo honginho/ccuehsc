@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> 環境保護及工業安全衛生中心 - 國立中正大學 </title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/var.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="app">
+        <main-header></main-header>
+
+        <div id="container">
+            <side-nav :id="1"></side-nav>
+
+            <div class="main">
+                <div class="title"> 關於中心 </div>
+                
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li class="active" style="width: calc(100%/4);"> 中心簡介 </li>
+                            <li style="width: calc(100%/4);"> 組織編制 </li>
+                            <li style="width: calc(100%/4);"> 法規編彙 </li>
+                            <li style="width: calc(100%/4);"> 活動照片 </li>
+                        </ul>
+                    </nav>
+
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <div class="date">2018.08.23</div>
+                                <div class="details text-overflow-ellipsis">
+                                    校外辦理的實驗室安全衛生教育訓練課程相關訊息
+                                </div>
+                            </li>
+                            <li>
+                                <div class="date">2018.06.10</div>
+                                <div class="details">
+                                    全校飲水機水質抽檢報告107年5月份
+                                </div>
+                            </li>
+                            <li>
+                                <div class="date">2018.03.28</div>
+                                <div class="details">
+                                    教育部來函有關依法辦理病媒防治採購案件
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main-footer></main-footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

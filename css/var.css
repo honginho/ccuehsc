@@ -1,0 +1,14 @@
+﻿/* var.css */
+
+:root {
+    --c-bg: #eff0ef;
+    --c-font: #444;
+    --c-header: #fff;
+    --c-nav-hover: #0b6bc2;
+    --c-container: #fcfcfc;
+    --c-main: /*#d9feb9*/ #50deac /*#bfdcc0*/ /*#1fa334*/;
+    --f-main: 16px;
+    --h-header: 200px;
+    --url-logo: url('../img/header.gif');;
+    --w-container: 1200px;
+}
