@@ -1,6 +1,9 @@
 'use strict';
+
+// 引入獨立的導覽列 js 檔
 import { naviBar } from '../naviBar.js';
 
+// 頁尾 (( © 之類的那些
 const MainFooter = {
     template: `
         <footer id="footer">
@@ -11,6 +14,7 @@ const MainFooter = {
     `
 };
 
+// 頁首 (( banner, logo 之類的
 const MainHeader = {
     template: `
         <header id="header">
@@ -45,6 +49,7 @@ const MainHeader = {
     `
 };
 
+// 左側導覽列
 const SideNav = {
     props: {
         id: {
@@ -52,10 +57,13 @@ const SideNav = {
         }
     },
     computed: {
-        contentInUl() {
+        // 透過外部引入的 js 來動態產生左側導覽列的內容
+        contentInNav() {
             let contentInUl = '';
+
             let countNav = naviBar.length;
             for (let i = 0; i < countNav; i++) {
+                // 判斷如果是在某個頁面，增加 .active 在那個 <li> 上
                 let isActive = (this.id === i) ? 'class="active"' : '';
                 contentInUl += `
                     <li>
@@ -69,9 +77,12 @@ const SideNav = {
             return contentInUl;
         }
     },
+    // 用 v-html 才能把 DOM 渲染也出來
+    // (!) 用 {{ <variable> }} 的話會出現純文字
+    // (!) 用 v-html 無法成功渲染 v-bind 的動作
     template: `
         <nav>
-            <ul v-html="contentInUl">
+            <ul v-html="contentInNav">
             </ul>
         </nav>
     `
