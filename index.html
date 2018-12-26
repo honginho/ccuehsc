@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,84 @@
 
     <title> 環境保護及工業安全衛生中心 - 國立中正大學 </title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./css/var.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <div id="app">
-        <main-header></main-header>
+        <!-- <main-header></main-header> -->
+        <section id="banner">
+            <div class="container">
+                <img src="./img/logo2.png" alt="國立中正大學" class="img-fluid py-4">
+                <hr>
+            </div>
+        </section>
 
-        <div id="container">
+        <section>
+            <div class="container p-5">
+                <div class="row">
+                    <!-- <div class="d-block col-md-12 d-md-none">ham-nav</div> -->
+                    <side-nav :id="1"></side-nav>
+
+                    <div class="col-md-9">
+                        <sub-nav :id="1"></sub-nav>
+
+                        <div class="tab-content p-3 bg-white border border-top-0 rounded-bottom shadow-sm" id="nav-tabContent">
+                            <sub-nav-content :id="0" :r-id="1">
+                                <h1>home</h1>
+                                HOME. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo libero, vero nam
+                                tempore voluptates error tempora non itaque blanditiis praesentium harum quisquam, cum
+                                mollitia nesciunt laboriosam, quos eveniet? Quam, perferendis?
+                            </sub-nav-content>
+                            <sub-nav-content :id="1" :r-id="1">
+                                PROFILE. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores vitae magnam
+                                quasi quos aut aspernatur, modi praesentium minus iusto reiciendis repellendus. Natus
+                                assumenda cum eaque ullam maxime odio accusamus ex.
+                            </sub-nav-content>
+                            <sub-nav-content :id="2" :r-id="1">
+                                CONTACT. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nam repellat,
+                                tenetur itaque asperiores deleniti iusto facilis, totam est veniam quos soluta
+                                praesentium odio, placeat blanditiis quisquam minima architecto maxime?
+                            </sub-nav-content>
+                            <sub-nav-content :id="3" :r-id="1">
+                                33333CONTACT. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nam
+                                repellat,
+                                tenetur itaque asperiores deleniti iusto facilis, totam est veniam quos soluta
+                                praesentium odio, placeat blanditiis quisquam minima architecto maxime?
+                            </sub-nav-content>
+
+                            <!-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                HOME. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo libero, vero nam
+                                tempore voluptates error tempora non itaque blanditiis praesentium harum quisquam, cum
+                                mollitia nesciunt laboriosam, quos eveniet? Quam, perferendis?
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                PROFILE. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores vitae magnam
+                                quasi quos aut aspernatur, modi praesentium minus iusto reiciendis repellendus. Natus
+                                assumenda cum eaque ullam maxime odio accusamus ex.
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                CONTACT. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nam repellat,
+                                tenetur itaque asperiores deleniti iusto facilis, totam est veniam quos soluta
+                                praesentium odio, placeat blanditiis quisquam minima architecto maxime?
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div id="container">
             <side-nav :id="1"></side-nav>
 
             <div class="main">
                 <div class="title"> 關於中心 </div>
-                
+
                 <div class="container">
                     <nav>
                         <ul>
@@ -52,15 +117,30 @@
                                 </div>
                             </li>
                         </ul>
+                        li
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <main-footer></main-footer>
+        <!-- <main-footer></main-footer> -->
+        <footer>
+            <div class="text-center py-3 text-white">
+                <address>版權所有 &copy; 2018 國立中正大學 環境保護及工業安全衛生中心 </address>
+                <p>621 嘉義縣民雄鄉大學路168號 (05)2720411 Fax：(05)2722249</p>
+                <p class="mb-0">最後更新日期：2018/10/25</p>
+            </div>
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
     <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>

@@ -6,9 +6,9 @@
     --c-header: #fff;
     --c-nav-hover: #0b6bc2;
     --c-container: #fcfcfc;
-    --c-main: /*#d9feb9*/ #50deac /*#bfdcc0*/ /*#1fa334*/;
+    --c-main: /*#d9feb9*/ #0b6bc2 /*#bfdcc0*/ /*#1fa334*/;
     --f-main: 16px;
-    --h-header: 200px;
+    --h-header: 110px;
     --url-logo: url('../img/header.gif');;
-    --w-container: 1200px;
+    --w-container: 1000px;
 }

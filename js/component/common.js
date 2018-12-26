@@ -1,7 +1,9 @@
 'use strict';
 
 // 引入獨立的導覽列 js 檔
-import { naviBar } from '../naviBar.js';
+import {
+    naviBar
+} from '../naviBar.js';
 
 // 頁尾 (( © 之類的那些
 const MainFooter = {
@@ -42,7 +44,7 @@ const MainHeader = {
 
             <div id="banner">
                 <div class="logo">
-                    <img src="./img/logo.png" alt="國立中正大學">
+                    <img src="./img/logo2.png" alt="國立中正大學">
                 </div>
             </div>
         </header>
@@ -58,38 +60,93 @@ const SideNav = {
     },
     computed: {
         // 透過外部引入的 js 來動態產生左側導覽列的內容
-        contentInNav() {
-            let contentInUl = '';
+        titleInNav() {
+            let htmlInUl = '';
 
             let countNav = naviBar.length;
             for (let i = 0; i < countNav; i++) {
-                // 判斷如果是在某個頁面，增加 .active 在那個 <li> 上
-                let isActive = (this.id === i) ? 'class="active"' : '';
-                contentInUl += `
-                    <li>
-                        <a ${ isActive } href="${ naviBar[i].link }">
-                            <i class="fas fa-angle-right"></i>
-                            ${ naviBar[i].title }
-                        </a>
-                    </li>
+                let isActive = (this.id === i) ? 'active' : '';
+                htmlInUl += `
+                    <a href="${ naviBar[i].link }" class="list-group-item list-group-item-action ${ isActive }">
+                        ${ naviBar[i].title }
+                    </a>
                 `;
             }
-            return contentInUl;
+            return htmlInUl;
         }
     },
     // 用 v-html 才能把 DOM 渲染也出來
     // (!) 用 {{ <variable> }} 的話會出現純文字
     // (!) 用 v-html 無法成功渲染 v-bind 的動作
     template: `
+        <div class="col-md-3 d-none d-md-block list-group" v-html="titleInNav"></div>
+    `
+};
+
+// 內容導覽列
+const SubNav = {
+    props: {
+        id: {
+            type: String
+        }
+    },
+    computed: {
+        // 透過外部引入的 js 來動態產生左側導覽列的內容
+        titleInSubNav() {
+            let htmlInSubUl = '';
+
+            let subNav = naviBar[this.id];
+            let countSubNav = subNav.details.length;
+            for (let i = 0; i < countSubNav; i++) {
+                let isActive = (i === 0) ? 'active' : '';
+                let isSelected = (i === 0) ? 'true' : 'false';
+                let targetTab = 'sub-nav-' + this.id + '-' + i + '-tab'; // aria-labelledby
+                let targetHref = 'sub-nav-' + this.id + '-' + i;
+                htmlInSubUl += `
+                    <a class="nav-item nav-link ${ isActive }" id="${ targetTab }" data-toggle="tab" href="#${ targetHref }" role="tab" aria-controls="${ targetHref }" aria-selected="${ isSelected }">
+                        ${ subNav.details[i] }
+                    </a>
+                `;
+            }
+            return htmlInSubUl;
+        }
+    },
+    template: `
         <nav>
-            <ul v-html="contentInNav">
-            </ul>
+            <div class="nav nav-tabs" id="sub-nav" role="tablist" v-html="titleInSubNav"></div>
         </nav>
+    `
+};
+
+// 內容導覽列
+const SubNavContent = {
+    props: {
+        id: { // self id
+            type: String
+        },
+        rId: { // reference id
+            type: String
+        }
+    },
+
+    data: function () {
+        return {
+            isActive: (this.id === 0) ? true : false,
+            targetHref: 'sub-nav-' + this.rId + '-' + this.id,
+            targetTab: 'sub-nav-' + this.rId + '-' + this.id + '-tab'
+        }
+    },
+    template: `
+        <div :class="{'tab-pane fade': true, 'show active': isActive}" :id="targetHref" role="tabpanel" :aria-labelledby="targetTab">
+            <slot></slot>
+        </div>
     `
 };
 
 export {
     MainFooter,
     MainHeader,
-    SideNav
+    SideNav,
+    SubNav,
+    SubNavContent
 };

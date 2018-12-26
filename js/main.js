@@ -1,6 +1,12 @@
 ﻿'use strict';
 
-import { MainFooter, MainHeader, SideNav } from './component/common.js';
+import {
+    MainFooter,
+    MainHeader,
+    SideNav,
+    SubNav,
+    SubNavContent
+} from './component/common.js';
 
 let main = new Vue({
     el: '#app',
@@ -13,6 +19,8 @@ let main = new Vue({
     components: {
         'MainFooter': MainFooter,
         'MainHeader': MainHeader,
-        'SideNav': SideNav
+        'SideNav': SideNav,
+        'SubNav': SubNav,
+        'SubNavContent': SubNavContent
     }
 });
