@@ -14,13 +14,42 @@
     --main-color: #17a2b8;
 }
 
+body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
 .list-group-item.active {
     background-color: var(--main-color) !important;
     border-color: var(--main-color) !important;
 }
 
+.nav-tabs .nav-link.active {
+    pointer-events: none;
+}
+
 .nav-tabs .nav-link:not(.active) {
     color: var(--main-color) !important;
+}
+
+.breadcrumb {
+    /* background-color: transparent; */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.breadcrumb .breadcrumb-item a {
+    color: #6c757d !important;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.breadcrumb .breadcrumb-item a:hover {
+    color: var(--main-color) !important;
+}
+
+.breadcrumb .breadcrumb-item.active a {
+    color: var(--main-color) !important;
+    pointer-events: none;
 }
 
 body {

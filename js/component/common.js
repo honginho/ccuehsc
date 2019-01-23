@@ -79,7 +79,7 @@ const SideNav = {
     // (!) 用 {{ <variable> }} 的話會出現純文字
     // (!) 用 v-html 無法成功渲染 v-bind 的動作
     template: `
-        <div class="col-md-3 d-none d-md-block list-group" v-html="titleInNav"></div>
+        <div class="col-md-3 col-lg-2 d-none d-md-block list-group" v-html="titleInNav"></div>
     `
 };
 
