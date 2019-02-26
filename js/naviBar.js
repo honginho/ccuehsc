@@ -36,8 +36,15 @@ const download = {
     details: []
 };
 
+const policy = {
+    id: 5,
+    title: '環安衛政策',
+    link: './policy.html',
+    details: []
+};
+
 const naviBar = [
-    news, about, business, topic, download
+    news, about, business, topic, download, policy
 ];
 
 export {
