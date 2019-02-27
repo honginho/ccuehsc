@@ -19,91 +19,19 @@
 
 <body>
     <div id="app">
-        <!-- <main-header></main-header> -->
-        <section id="banner">
-            <div class="container">
-                <div class="row flex-lg-row-reverse">
-                    <div class="col-lg-4 col-sm-6">
-                        <nav>
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item">
-                                    <a href="http://www.ccu.edu.tw/">中正大學</a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                    <a href="#">中文</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#">English</a>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-
-                    <div class="col-lg-8">
-                        <img src="./img/logo2.png" alt="國立中正大學" class="img-fluid py-4">
-                    </div>
-                </div>
-
-                <hr>
-            </div>
-        </section>
+        <main-header></main-header>
 
         <section>
             <div class="container p-5">
                 <div class="row">
                     <!-- <div class="d-block col-md-12 d-md-none">ham-nav</div> -->
-                    <side-nav :id="4"></side-nav>
-
-                    <div class="col-md-9 col-lg-10">
-                        <sub-nav :id="4"></sub-nav>
-
-                        <div class="tab-content p-3 bg-white border border-top-0 rounded-bottom shadow-sm" id="nav-tabContent">
-                            <sub-nav-content :id="0" :r-id="4">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">檔案名稱</th>
-                                                <th scope="col">上傳日期</th>
-                                                <th scope="col">下載</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    107飲水機第四季報告 1
-                                                </td>
-                                                <td>
-                                                    2019 /  1 / 23
-                                                </td>
-                                                <td>
-                                                    <a href="./assets/107飲水機第四季報告1.doc" download>
-                                                        <span class="badge badge-primary">DOC</span>
-                                                    </a>
-                                                    <a href="./assets/107飲水機第四季報告1.pdf" download>
-                                                        <span class="badge badge-danger">PDF</span>
-                                                    </a>
-                                                    <a href="./assets/107飲水機第四季報告1.pdf" download>
-                                                        <span class="badge badge-info">ODT</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                            </sub-nav-content>
-                        </div>
-                    </div>
+                    <side-nav :id="12"></side-nav>
+                    <sub-nav-and-content :id="12"></sub-nav-and-content>
                 </div>
             </div>
         </section>
 
-        <!-- <main-footer></main-footer> -->
-        <footer>
-            <div class="text-center py-3 text-white">
-                <address>版權所有 &copy; 2018 國立中正大學 環境保護及工業安全衛生中心 </address>
-                <p>621 嘉義縣民雄鄉大學路168號 (05)2720411 Fax：(05)2722249</p>
-                <p class="mb-0">最後更新日期：2018/10/25</p>
-            </div>
-        </footer>
+        <main-footer></main-footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

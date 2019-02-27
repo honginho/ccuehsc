@@ -4,9 +4,8 @@ import {
     MainFooter,
     MainHeader,
     SideNav,
-    SubNav,
-    SubNavContent
-} from './component/common.js';
+    SubNavAndContent
+} from './components.js';
 
 let main = new Vue({
     el: '#app',
@@ -20,7 +19,6 @@ let main = new Vue({
         'MainFooter': MainFooter,
         'MainHeader': MainHeader,
         'SideNav': SideNav,
-        'SubNav': SubNav,
-        'SubNavContent': SubNavContent
+        'SubNavAndContent': SubNavAndContent
     }
 });
