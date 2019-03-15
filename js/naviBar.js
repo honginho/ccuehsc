@@ -165,6 +165,16 @@ const Animal = {
                     title: '實驗動物照護及使用申請檢查表',
                     date: '2019 / 3 / 15',
                     doc: '實驗動物照護及使用申請檢查表'
+                },
+                {
+                    title: '動物實驗人道管理替代、減量及精緻化(3R)說明',
+                    date: '2019 / 3 / 15',
+                    doc: '動物實驗人道管理替代、減量及精緻化(3R)說明'
+                },
+                {
+                    title: '動物實驗實地查核PAM查核表',
+                    date: '2019 / 3 / 15',
+                    doc: '動物實驗實地查核PAM查核表'
                 }
             ],
             get template() { return TplAnimal[1](this.lead, this.data); }
@@ -172,7 +182,18 @@ const Animal = {
         {
             title: '其它',
             lead: '',
-            data: [],
+            data: [
+                {
+                    title: '104年度動物科學應用機構實地查核評比結果',
+                    date: '2019 / 3 / 15',
+                    pdf: '104年度動物科學應用機構實地查核評比結果'
+                },
+                {
+                    title: '98年動物科學應用機構查核輔導結果',
+                    date: '2019 / 3 / 15',
+                    pdf: '98 年動物科學應用機構查核輔導結果'
+                }
+            ],
             get template() { return TplAnimal[2](this.lead, this.data); }
         }
     ]

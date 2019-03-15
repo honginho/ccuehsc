@@ -85,8 +85,8 @@ const TplAnimal = [
     function (lead='', data=[]) {
         return ComponentTable(Category, lead, data);
     },
-    function () {
-        return ;
+    function (lead='', data=[]) {
+        return ComponentTable(Category, lead, data);
     }
 ];
 

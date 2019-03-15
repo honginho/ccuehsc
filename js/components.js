@@ -12,7 +12,7 @@ const MainFooter = {
             <div class="text-center py-3 text-white">
                 <address>版權所有 &copy; 2018 國立中正大學 環境保護及工業安全衛生中心 </address>
                 <p>621 嘉義縣民雄鄉大學路168號 (05)2720411 Fax：(05)2722249</p>
-                <p class="mb-0">最後更新日期：2019/2/27</p>
+                <p class="mb-0">最後更新日期：2019/3/15</p>
             </div>
         </footer>
     `
