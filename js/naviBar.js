@@ -127,7 +127,7 @@ const Animal = {
                 {
                     title: '實驗動物照護及使用委員會設置及管理要點',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用委員會設置及管理要點'
+                    doc: '20190315_00'
                 }
             ],
             get template() { return TplAnimal[0](this.lead, this.data); }
@@ -139,42 +139,42 @@ const Animal = {
                 {
                     title: '實驗動物照護及使用申請表填寫說明',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用申請表填寫說明'
+                    doc: '20190315_08'
                 },
                 {
                     title: '實驗動物照護及使用申請表',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用申請表'
+                    doc: '20190315_07'
                 },
                 {
                     title: '實驗動物照護及使用申請表修正申請單',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用申請表修正申請單'
+                    doc: '20190315_06'
                 },
                 {
                     title: '實驗動物照護及使用委員會審查同意書',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用委員會審查同意書'
+                    doc: '20190315_05'
                 },
                 {
                     title: '實驗動物照護及使用申請表送件證明',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用申請表送件證明'
+                    doc: '20190315_04'
                 },
                 {
                     title: '實驗動物照護及使用申請檢查表',
                     date: '2019 / 3 / 15',
-                    doc: '實驗動物照護及使用申請檢查表'
+                    doc: '20190315_03'
                 },
                 {
                     title: '動物實驗人道管理替代、減量及精緻化(3R)說明',
                     date: '2019 / 3 / 15',
-                    doc: '動物實驗人道管理替代、減量及精緻化(3R)說明'
+                    doc: '20190315_02'
                 },
                 {
                     title: '動物實驗實地查核PAM查核表',
                     date: '2019 / 3 / 15',
-                    doc: '動物實驗實地查核PAM查核表'
+                    doc: '20190315_01'
                 }
             ],
             get template() { return TplAnimal[1](this.lead, this.data); }
@@ -186,12 +186,12 @@ const Animal = {
                 {
                     title: '104年度動物科學應用機構實地查核評比結果',
                     date: '2019 / 3 / 15',
-                    pdf: '104年度動物科學應用機構實地查核評比結果'
+                    pdf: '20190315_10'
                 },
                 {
                     title: '98年動物科學應用機構查核輔導結果',
                     date: '2019 / 3 / 15',
-                    pdf: '98 年動物科學應用機構查核輔導結果'
+                    pdf: '20190315_09'
                 }
             ],
             get template() { return TplAnimal[2](this.lead, this.data); }
@@ -211,7 +211,7 @@ const Biosecurity = {
                 {
                     title: '國立中正大學生物實驗安全委員會組織要點',
                     date: '2019 / 3 / 15',
-                    pdf: '國立中正大學生物實驗安全委員會組織要點'
+                    pdf: '20190315_11'
                 }
             ],
             get template() { return TplBiosecurity[0](this.lead, this.data); }
@@ -228,12 +228,12 @@ const Biosecurity = {
                 {
                     title: '生物實驗安全委員會基因重組實驗申請書',
                     date: '2019 / 3 / 15',
-                    doc: '生物實驗安全委員會基因重組實驗申請書'
+                    doc: '20190315_13'
                 },
                 {
                     title: '生物實驗安全委員會第二級以上感染性生物材料使用申請單',
                     date: '2019 / 3 / 15',
-                    docx: '生物實驗安全委員會第二級以上感染性生物材料使用申請單'
+                    docx: '20190315_12'
                 }
             ],
             get template() { return TplBiosecurity[1](this.lead, this.data); }
@@ -368,8 +368,8 @@ const DrinkingFountain = {
             data: [
                 {
                     title: '107飲水機第四季報告1',
-                    date: '2019 / 3 / 15',
-                    pdf: '107飲水機第四季報告1'
+                    date: '2019 / 2 / 27',
+                    pdf: '20190227_00'
                 }
             ],
             get template() { return TplDrinkingFountain[1](this.lead, this.data); }
