@@ -1,7 +1,11 @@
 // Hygiene.js
 'use strict';
 
-const tplHygiene = [];
+const tplHygiene = [
+    function () {
+        return ;
+    }
+];
 
 export {
     tplHygiene

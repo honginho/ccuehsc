@@ -1,7 +1,17 @@
 // Biosecurity.js
 'use strict';
 
-const tplBiosecurity = [];
+const tplBiosecurity = [
+    function () {
+        return ;
+    },
+    function () {
+        return ;
+    },
+    function () {
+        return ;
+    }
+];
 
 export {
     tplBiosecurity

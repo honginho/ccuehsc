@@ -22,7 +22,8 @@ const News = {
     details: [
         {
             title: '',
-            template: tplNews[0]
+            data: [],
+            get template() { return tplNews[0](this.data); }
         }
     ]
 };
@@ -34,19 +35,23 @@ const About = {
     details: [
         {
             title: '環安衛政策',
-            template: tplAbout[0]
+            data: [],
+            get template() { return tplAbout[0](this.data); }
         },
         {
             title: '歷史沿革',
-            template: tplAbout[1]
+            data: [],
+            get template() { return tplAbout[1](this.data); }
         },
         {
             title: '組織編制',
-            template: tplAbout[2]
+            data: [],
+            get template() { return tplAbout[2](this.data); }
         },
         {
             title: '歷任中心主任',
-            template: tplAbout[3]
+            data: [],
+            get template() { return tplAbout[3](this.data); }
         }
     ]
 };
@@ -58,15 +63,18 @@ const Team = {
     details: [
         {
             title: '中心',
-            template: tplTeam[0]
+            data: [],
+            get template() { return tplTeam[0](this.data); }
         },
         {
             title: '環境保護組',
-            template: tplTeam[1]
+            data: [],
+            get template() { return tplTeam[1](this.data); }
         },
         {
             title: '安全衛生組',
-            template: tplTeam[2]
+            data: [],
+            get template() { return tplTeam[2](this.data); }
         }
     ]
 };
@@ -78,7 +86,8 @@ const Trash = {
     details: [
         {
             title: '',
-            template: tplTrash[0]
+            data: [],
+            get template() { return tplTrash[0](this.data); }
         }
     ]
 };
@@ -90,7 +99,8 @@ const Hygiene = {
     details: [
         {
             title: '',
-            template: tplHygiene[0]
+            data: [],
+            get template() { return tplHygiene[0](this.data); }
         }
     ]
 };
@@ -102,15 +112,18 @@ const Animal = {
     details: [
         {
             title: '設置',
-            template: tplAnimal[0]
+            data: [],
+            get template() { return tplAnimal[0](this.data); }
         },
         {
             title: '相關表單',
-            template: tplAnimal[1]
+            data: [],
+            get template() { return tplAnimal[1](this.data); }
         },
         {
             title: '其它',
-            template: tplAnimal[2]
+            data: [],
+            get template() { return tplAnimal[2](this.data); }
         }
     ]
 };
@@ -122,15 +135,18 @@ const Biosecurity = {
     details: [
         {
             title: '設置',
-            template: tplBiosecurity[0]
+            data: [],
+            get template() { return tplBiosecurity[0](this.data); }
         },
         {
             title: '相關表單',
-            template: tplBiosecurity[1]
+            data: [],
+            get template() { return tplBiosecurity[1](this.data); }
         },
         {
             title: '其它',
-            template: tplBiosecurity[2]
+            data: [],
+            get template() { return tplBiosecurity[2](this.data); }
         }
     ]
 };
@@ -142,15 +158,18 @@ const Radioprotection = {
     details: [
         {
             title: '設置',
-            template: tplRadioprotection[0]
+            data: [],
+            get template() { return tplRadioprotection[0](this.data); }
         },
         {
             title: '輻射防護計畫書',
-            template: tplRadioprotection[1]
+            data: [],
+            get template() { return tplRadioprotection[1](this.data); }
         },
         {
             title: '相關表單',
-            template: tplRadioprotection[2]
+            data: [],
+            get template() { return tplRadioprotection[2](this.data); }
         }
     ]
 };
@@ -162,19 +181,23 @@ const LaborHealth = {
     details: [
         {
             title: '特殊化學品健檢',
-            template: tplLaborHealth[0]
+            data: [],
+            get template() { return tplLaborHealth[0](this.data); }
         },
         {
             title: '生安第二等級健檢',
-            template: tplLaborHealth[1]
+            data: [],
+            get template() { return tplLaborHealth[1](this.data); }
         },
         {
             title: '一般勞工健檢',
-            template: tplLaborHealth[2]
+            data: [],
+            get template() { return tplLaborHealth[2](this.data); }
         },
         {
             title: '輻射防護健檢',
-            template: tplLaborHealth[3]
+            data: [],
+            get template() { return tplLaborHealth[3](this.data); }
         }
     ]
 };
@@ -186,11 +209,13 @@ const Train = {
     details: [
         {
             title: '108年',
-            template: tplTrain[0]
+            data: [],
+            get template() { return tplTrain[0](this.data); }
         },
         {
             title: '107年',
-            template: tplTrain[1]
+            data: [],
+            get template() { return tplTrain[1](this.data); }
         }
     ]
 };
@@ -202,15 +227,18 @@ const StrayAnimal = {
     details: [
         {
             title: '政策',
-            template: tplStrayAnimal[0]
+            data: [],
+            get template() { return tplStrayAnimal[0](this.data); }
         },
         {
             title: '活動',
-            template: tplStrayAnimal[1]
+            data: [],
+            get template() { return tplStrayAnimal[1](this.data); }
         },
         {
             title: '相關表單',
-            template: tplStrayAnimal[2]
+            data: [],
+            get template() { return tplStrayAnimal[2](this.data); }
         }
     ]
 };
@@ -222,11 +250,13 @@ const DrinkingFountain = {
     details: [
         {
             title: '108年',
-            template: tplDrinkingFountain[0]
+            data: [],
+            get template() { return tplDrinkingFountain[0](this.data); }
         },
         {
             title: '107年',
-            template: tplDrinkingFountain[1]
+            data: [],
+            get template() { return tplDrinkingFountain[1](this.data); }
         }
     ]
 };
@@ -238,7 +268,8 @@ const Download = {
     details: [
         {
             title: '',
-            template: tplDownload[0]
+            data: [],
+            get template() { return tplDownload[0](this.data); }
         }
     ]
 };

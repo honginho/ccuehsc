@@ -1,7 +1,11 @@
 // News.js
 'use strict';
 
-const tplNews = [];
+const tplNews = [
+    function () {
+        return ;
+    }
+];
 
 export {
     tplNews

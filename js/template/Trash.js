@@ -1,7 +1,11 @@
 // Trash.js
 'use strict';
 
-const tplTrash = [];
+const tplTrash = [
+    function () {
+        return ;
+    }
+];
 
 export {
     tplTrash
