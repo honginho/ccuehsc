@@ -1,7 +1,7 @@
 // Train.js
 'use strict';
 
-const tplTrain = [
+const TplTrain = [
     function () {
         return ;
     },
@@ -11,5 +11,5 @@ const tplTrain = [
 ];
 
 export {
-    tplTrain
+    TplTrain
 };

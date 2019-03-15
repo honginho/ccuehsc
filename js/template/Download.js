@@ -1,12 +1,12 @@
 // Download.js
 'use strict';
 
-const tplDownload = [
+const TplDownload = [
     function () {
         return ;
     }
 ];
 
 export {
-    tplDownload
+    TplDownload
 };

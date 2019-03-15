@@ -1,7 +1,7 @@
 // StrayAnimal.js
 'use strict';
 
-const tplStrayAnimal = [
+const TplStrayAnimal = [
     function () {
         return ;
     },
@@ -14,5 +14,5 @@ const tplStrayAnimal = [
 ];
 
 export {
-    tplStrayAnimal
+    TplStrayAnimal
 };

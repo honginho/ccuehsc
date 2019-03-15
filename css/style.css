@@ -32,7 +32,7 @@ i {
     color: var(--main-color);
 }
 
-.table td {
+.table.table-td-larger td {
     padding: 1.5rem .75rem;
 }
 

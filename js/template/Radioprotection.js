@@ -1,7 +1,7 @@
 // Radioprotection.js
 'use strict';
 
-const tplRadioprotection = [
+const TplRadioprotection = [
     function () {
         return ;
     },
@@ -14,5 +14,5 @@ const tplRadioprotection = [
 ];
 
 export {
-    tplRadioprotection
+    TplRadioprotection
 };

@@ -1,11 +1,11 @@
 // Team.js
 'use strict';
 
-const tplTeam = [
+const TplTeam = [
     function () {
         let tpl =
             `<!-- 中心 -->
-                <table class="table table-bordered">
+                <table class="table table-bordered table-td-larger">
                     <!-- <thead>
                         <tr>
                             <th scope="col"></th>
@@ -61,7 +61,7 @@ const tplTeam = [
     function () {
         let tpl =
             `<!-- 環境保護組 -->
-                <table class="table table-bordered">
+                <table class="table table-bordered table-td-larger">
                     <tbody scope="environment">
                         <tr>
                             <td>
@@ -156,7 +156,7 @@ const tplTeam = [
     function () {
         let tpl =
             `<!-- 安全衛生組 -->
-                <table class="table table-bordered">
+                <table class="table table-bordered table-td-larger">
                     <tbody scope="hygiene">
                         <tr>
                             <td>
@@ -248,5 +248,5 @@ const tplTeam = [
 ];
 
 export {
-    tplTeam
+    TplTeam
 };

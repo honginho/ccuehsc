@@ -1,49 +1,92 @@
 // DrinkingFountain.js
 'use strict';
 
-const tplDrinkingFountain = [
-    function () {
-        let tpl =
-            `
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">檔案名稱</th>
-                            <th scope="col">上傳日期</th>
-                            <th scope="col">下載</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                107飲水機第四季報告 1
-                            </td>
-                            <td>
-                                2019 /  1 / 23
-                            </td>
-                            <td>
-                                <a href="./assets/107飲水機第四季報告1.doc" download>
-                                    <span class="badge badge-primary">DOC</span>
-                                </a>
-                                <a href="./assets/107飲水機第四季報告1.pdf" download>
-                                    <span class="badge badge-danger">PDF</span>
-                                </a>
-                                <a href="./assets/107飲水機第四季報告1.pdf" download>
-                                    <span class="badge badge-info">ODT</span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            `;
+const Category = 'DrinkingFountain';
 
-        return tpl;
+function ComponentTable(category, lead, data) {
+    let content = '';
+
+    if (lead !== '') {
+        lead = `<div class="alert alert-success" role="alert"> ${ lead } </div>`;
+    }
+
+    for (let i = 0; i < data.length; i++) {
+        let file = '';
+
+        if (data[i].docx) {
+            file += `
+                <a href="./assets/${ category }/${ data[i].docx }.docx" download>
+                    <span class="badge badge-primary">DOC</span>
+                </a>
+            `;
+        }
+        else if (data[i].doc) {
+            file += `
+                <a href="./assets/${ category }/${ data[i].doc }.doc" download>
+                    <span class="badge badge-primary">DOC</span>
+                </a>
+            `;
+        }
+
+        if (data[i].pdf) {
+            file += `
+                <a href="./assets/${ category }/${ data[i].pdf }.pdf" download>
+                    <span class="badge badge-danger">PDF</span>
+                </a>
+            `;
+        }
+        if (data[i].opt) {
+            file += `
+                <a href="./assets/${ category }/${ data[i].opt }.opt" download>
+                    <span class="badge badge-info">OPT</span>
+                </a>
+            `;
+        }
+
+        content += `
+            <tr>
+                <td>
+                    ${ data[i].title }
+                </td>
+                <td>
+                    ${ data[i].date }
+                </td>
+                <td>
+                    ${ file }
+                </td>
+            </tr>
+        `;
+    }
+
+    let tpl =
+        `
+            ${ lead }
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">檔案名稱</th>
+                        <th scope="col">上傳日期</th>
+                        <th scope="col">下載</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${ content }
+                </tbody>
+            </table>
+        `;
+
+    return tpl;
+}
+
+const TplDrinkingFountain = [
+    function (lead='', data=[]) {
+        return ComponentTable(Category, lead, data);
     },
-    function () {
-        return ;
+    function (lead='', data=[]) {
+        return ComponentTable(Category, lead, data);
     }
 ];
 
 export {
-    tplDrinkingFountain
+    TplDrinkingFountain
 };

@@ -1,7 +1,7 @@
 // About.js
 'use strict';
 
-const tplAbout = [
+const TplAbout = [
     function () {
         let tpl =
             `<!-- 環安衛政策 -->
@@ -46,5 +46,5 @@ const tplAbout = [
 ];
 
 export {
-    tplAbout
+    TplAbout
 };

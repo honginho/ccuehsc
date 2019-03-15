@@ -1,7 +1,7 @@
 // LaborHealth.js
 'use strict';
 
-const tplLaborHealth = [
+const TplLaborHealth = [
     function () {
         return ;
     },
@@ -17,5 +17,5 @@ const tplLaborHealth = [
 ];
 
 export {
-    tplLaborHealth
+    TplLaborHealth
 };

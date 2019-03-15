@@ -2,7 +2,7 @@
 
 // 引入獨立的導覽列 js 檔
 import {
-    naviBar
+    NaviBar
 } from './naviBar.js';
 
 // 頁尾 (( © 之類的那些
@@ -63,12 +63,12 @@ const SideNav = {
         titleInNav() {
             let htmlInUl = '';
 
-            let countNav = naviBar.length;
+            let countNav = NaviBar.length;
             for (let i = 0; i < countNav; i++) {
                 let isActive = (this.id === i) ? 'active' : '';
                 htmlInUl += `
-                    <a href="${ naviBar[i].link }" class="list-group-item list-group-item-action ${ isActive }">
-                        ${ naviBar[i].title }
+                    <a href="${ NaviBar[i].link }" class="list-group-item list-group-item-action ${ isActive }">
+                        ${ NaviBar[i].title }
                     </a>
                 `;
             }
@@ -94,7 +94,7 @@ const SubNavAndContent = {
         // 透過外部引入的 js 來動態產生「右側」副導覽列的內容
         title() {
             let html = '';
-            let subNav = naviBar[this.id];
+            let subNav = NaviBar[this.id];
             let countSubNav = subNav.details.length;
 
             if (countSubNav === 1) return html;
@@ -114,7 +114,7 @@ const SubNavAndContent = {
         },
         content() {
             let html = '';
-            let subNav = naviBar[this.id];
+            let subNav = NaviBar[this.id];
             let countSubNav = subNav.details.length;
 
             if (countSubNav === 0);
