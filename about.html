@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="1,About">
 
     <title> 環境保護及工業安全衛生中心 - 國立中正大學 </title>
 
@@ -26,7 +27,51 @@
                 <div class="row">
                     <!-- <div class="d-block col-md-12 d-md-none">ham-nav</div> -->
                     <side-nav :id="1"></side-nav>
-                    <sub-nav-and-content :id="1"></sub-nav-and-content>
+                    <div class="col-md-9 col-lg-10">
+                        <nav>
+                            <div id="sub-nav" role="tablist" class="nav nav-tabs">
+                                <a class="nav-item nav-link active show" id="sub-nav-1-0-tab" data-toggle="tab" href="#sub-nav-1-0" role="tab" aria-controls="sub-nav-1-0" aria-selected="true">
+                                    環安衛政策
+                                </a>
+                                <a class="nav-item nav-link " id="sub-nav-1-1-tab" data-toggle="tab" href="#sub-nav-1-1" role="tab" aria-controls="sub-nav-1-1" aria-selected="false">
+                                    歷史沿革
+                                </a>
+                                <a class="nav-item nav-link " id="sub-nav-1-2-tab" data-toggle="tab" href="#sub-nav-1-2" role="tab" aria-controls="sub-nav-1-2" aria-selected="false">
+                                    組織編制
+                                </a>
+                                <a class="nav-item nav-link " id="sub-nav-1-3-tab" data-toggle="tab" href="#sub-nav-1-3" role="tab" aria-controls="sub-nav-1-3" aria-selected="false">
+                                    歷任中心主任
+                                </a>
+                            </div>
+                        </nav>
+                        <div id="nav-tabContent" class="tab-content p-3 bg-white border border-top-0 rounded-bottom shadow-sm">
+                            <div class="tab-pane fade active show" id="sub-nav-1-0" role="tabpanel" aria-labelledby="sub-nav-1-0-tab">
+                                <!-- 環安衛政策 -->
+                                <img src="./img/certificate.jpg" class="img-fluid img-thumbnail rounded" alt="policy">
+                            </div>
+                            <div class="tab-pane fade " id="sub-nav-1-1" role="tabpanel" aria-labelledby="sub-nav-1-1-tab">
+                                <!-- 歷史沿革 -->
+                                <p>
+                                    國立中正大學創校之初便設有「環境保護組」，原隸屬總務處；後更名為「環境保護小組」，直至民國87年12月依學校組織規程改置為現今之「環境保護及工業安全衛生中心」，為一級單位，辦理校園環境保護與實驗場所安全衛生等事項。本中心下設兩組，分別為「環境保護組」及「安全衛生組」。
+                                </p>
+                            </div>
+                            <div class="tab-pane fade " id="sub-nav-1-2" role="tabpanel" aria-labelledby="sub-nav-1-2-tab">
+                                <!-- 組織編制 -->
+                                <p>
+                                    置中心主任1人、組長2人、技正1人、技士1人、技佐2人、專案人員1人、技工1人及工友1人。
+                                </p>
+                            </div>
+                            <div class="tab-pane fade " id="sub-nav-1-3" role="tabpanel" aria-labelledby="sub-nav-1-3-tab">
+                                <!-- 歷任中心主任 -->
+                                <p>
+                                    黃奇 1999/4~2004/7 <br>
+                                    張仁瑞教授 2004/8~2006/6 <br>
+                                    敖仲寧教授 2008/7~2016/1 <br>
+                                    許昺慕教授 2016/2~迄今
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -35,8 +80,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"

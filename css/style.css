@@ -29,6 +29,9 @@ a:hover {
 
 i {
     padding-right: 6px;
+}
+
+table i {
     color: var(--main-color);
 }
 
@@ -74,6 +77,8 @@ footer {
     background-color: var(--main-color) !important;
 }
 
+/* Self definition */
+
 .td-a {
     color: #000;
 }
@@ -81,4 +86,81 @@ footer {
 .td-a:hover {
     color: #007bff;
     text-decoration: none;
+}
+
+#nav-logo:hover {
+    transition: .2s;
+    filter: brightness(.8);
+}
+
+#landing > .container-fluid {
+    background-color: rgba(255,255,255,0.5);
+    border-bottom: 1px solid #ddd;
+}
+
+.card {
+    width: 100%;
+    max-width: 250px;
+    border-width: 2px;
+    cursor: pointer;
+}
+
+#carouselEg {
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+
+
+
+
+#news-list li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    list-style: none;
+}
+
+#news-list li.new-post:before {
+    position: absolute;
+    left: 1.6rem;
+    margin-top: -10px;
+    padding-top: 3px;
+    content: '';
+    display: inline-block;
+    text-align: center;
+    margin: 5px 10px;
+    line-height: 20px;
+    transition: all .2s;
+    color: #ffffff;
+    background: #61c5d3;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    content: '✓';
+}
+
+
+
+
+
+.card:nth-of-type(1n) { border-color: rgba(224, 107, 117, 1); color: rgba(224, 107, 117, 1); }
+.card:nth-of-type(1n):hover { background-color: rgba(224, 107, 117, .3); }
+
+.card:nth-of-type(2n) { border-color: rgba(229, 192, 123, 1); color: rgba(229, 192, 123, 1); }
+.card:nth-of-type(2n):hover { background-color: rgba(229, 192, 123, .3); }
+
+.card:nth-of-type(3n) { border-color: rgba(97, 175, 239, 1); color: rgba(97, 175, 239, 1); }
+.card:nth-of-type(3n):hover { background-color: rgba(97, 175, 239, .3); }
+
+.card:nth-of-type(4n) { border-color: rgba(152, 195, 121, 1); color: rgba(152, 195, 121, 1); }
+.card:nth-of-type(4n):hover { background-color: rgba(152, 195, 121, .3); }
+
+.card:nth-of-type(5n) { border-color: rgba(86, 182, 194, 1); color: rgba(86, 182, 194, 1); }
+.card:nth-of-type(5n):hover { background-color: rgba(86, 182, 194, .3); }
+
+.card:nth-of-type(6n) { border-color: rgba(198, 120, 221, 1); color: rgba(198, 120, 221, 1); }
+.card:nth-of-type(6n):hover { background-color: rgba(198, 120, 221, .3); }
+
+.card-title {
+    font-weight: bold;
 }

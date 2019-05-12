@@ -15,6 +15,8 @@ import { TplStrayAnimal } from './template/StrayAnimal.js';
 import { TplDrinkingFountain } from './template/DrinkingFountain.js';
 import { TplDownload } from './template/Download.js';
 
+// let News, About, Team, Trash, Hygiene, Animal, Biosecurity, Radioprotection, LaborHealth, Train, StrayAnimal, DrinkingFountain, Download;
+
 const News = {
     id: 0,
     title: '最新消息',
@@ -23,7 +25,20 @@ const News = {
         {
             title: '',
             lead: '',
-            data: [],
+            data: [
+                {
+                    title: '學校學習與職業安全衛生政策目標',
+                    date: '2019 / 2 / 23',
+                    content: '教育部「學校學習與職業安全衛生政策目標」公告',
+                    pdf: '20190315_00.pdf'
+                },
+                {
+                    title: '學校學習與職業安全衛生政策目標',
+                    date: '2019 / 2 / 23',
+                    content: '教育部「學校學習與職業安全衛生政策目標」公告',
+                    pdf: '20190315_00.pdf'
+                }
+            ],
             get template() { return TplNews[0](this.lead, this.data); }
         }
     ]
@@ -123,78 +138,84 @@ const Animal = {
         {
             title: '設置',
             lead: '',
-            data: [
-                {
-                    title: '實驗動物照護及使用委員會設置及管理要點',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_00'
-                }
-            ],
-            get template() { return TplAnimal[0](this.lead, this.data); }
+            // data: [
+            //     {
+            //         title: '實驗動物照護及使用委員會設置及管理要點',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_00.doc'
+            //     }
+            // ],
+            // get template() { return TplAnimal[0](this.lead, this.data); }
+            data: '',
+            template: ''
         },
         {
             title: '相關表單',
             lead: '',
-            data: [
-                {
-                    title: '實驗動物照護及使用申請表填寫說明',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_08'
-                },
-                {
-                    title: '實驗動物照護及使用申請表',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_07'
-                },
-                {
-                    title: '實驗動物照護及使用申請表修正申請單',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_06'
-                },
-                {
-                    title: '實驗動物照護及使用委員會審查同意書',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_05'
-                },
-                {
-                    title: '實驗動物照護及使用申請表送件證明',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_04'
-                },
-                {
-                    title: '實驗動物照護及使用申請檢查表',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_03'
-                },
-                {
-                    title: '動物實驗人道管理替代、減量及精緻化(3R)說明',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_02'
-                },
-                {
-                    title: '動物實驗實地查核PAM查核表',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_01'
-                }
-            ],
-            get template() { return TplAnimal[1](this.lead, this.data); }
+            // data: [
+            //     {
+            //         title: '實驗動物照護及使用申請表填寫說明',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_08.doc'
+            //     },
+            //     {
+            //         title: '實驗動物照護及使用申請表',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_07.doc'
+            //     },
+            //     {
+            //         title: '實驗動物照護及使用申請表修正申請單',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_06.doc'
+            //     },
+            //     {
+            //         title: '實驗動物照護及使用委員會審查同意書',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_05.doc'
+            //     },
+            //     {
+            //         title: '實驗動物照護及使用申請表送件證明',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_04.doc'
+            //     },
+            //     {
+            //         title: '實驗動物照護及使用申請檢查表',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_03.doc'
+            //     },
+            //     {
+            //         title: '動物實驗人道管理替代、減量及精緻化(3R)說明',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_02.doc'
+            //     },
+            //     {
+            //         title: '動物實驗實地查核PAM查核表',
+            //         date: '2019 / 3 / 15',
+            //         doc: '20190315_01.doc'
+            //     }
+            // ],
+            // get template() { return TplAnimal[1](this.lead, this.data); }
+            data: '',
+            template: ''
         },
         {
             title: '其它',
             lead: '',
-            data: [
-                {
-                    title: '104年度動物科學應用機構實地查核評比結果',
-                    date: '2019 / 3 / 15',
-                    pdf: '20190315_10'
-                },
-                {
-                    title: '98年動物科學應用機構查核輔導結果',
-                    date: '2019 / 3 / 15',
-                    pdf: '20190315_09'
-                }
-            ],
-            get template() { return TplAnimal[2](this.lead, this.data); }
+            // data: [
+            //     {
+            //         title: '104年度動物科學應用機構實地查核評比結果',
+            //         date: '2019 / 3 / 15',
+            //         pdf: '20190315_10.pdf'
+            //     },
+            //     {
+            //         title: '98年動物科學應用機構查核輔導結果',
+            //         date: '2019 / 3 / 15',
+            //         pdf: '20190315_09.pdf'
+            //     }
+            // ],
+            // get template() { return TplAnimal[2](this.lead, this.data); }
+            data: '',
+            template: ''
         }
     ]
 };
@@ -208,11 +229,11 @@ const Biosecurity = {
             title: '設置',
             lead: '',
             data: [
-                {
-                    title: '國立中正大學生物實驗安全委員會組織要點',
-                    date: '2019 / 3 / 15',
-                    pdf: '20190315_11'
-                }
+                // {
+                //     title: '國立中正大學生物實驗安全委員會組織要點',
+                //     date: '2019 / 3 / 15',
+                //     pdf: '20190315_11.pdf'
+                // }
             ],
             get template() { return TplBiosecurity[0](this.lead, this.data); }
         },
@@ -225,16 +246,16 @@ const Biosecurity = {
                 (3)研究計畫中英文摘要<br>
                 (4)基因重組相關之研究方法與材`,
             data: [
-                {
-                    title: '生物實驗安全委員會基因重組實驗申請書',
-                    date: '2019 / 3 / 15',
-                    doc: '20190315_13'
-                },
-                {
-                    title: '生物實驗安全委員會第二級以上感染性生物材料使用申請單',
-                    date: '2019 / 3 / 15',
-                    docx: '20190315_12'
-                }
+                // {
+                //     title: '生物實驗安全委員會基因重組實驗申請書',
+                //     date: '2019 / 3 / 15',
+                //     doc: '20190315_13.doc'
+                // },
+                // {
+                //     title: '生物實驗安全委員會第二級以上感染性生物材料使用申請單',
+                //     date: '2019 / 3 / 15',
+                //     docx: '20190315_12.docx'
+                // }
             ],
             get template() { return TplBiosecurity[1](this.lead, this.data); }
         },
@@ -366,11 +387,11 @@ const DrinkingFountain = {
             title: '107年',
             lead: '',
             data: [
-                {
-                    title: '107飲水機第四季報告1',
-                    date: '2019 / 2 / 27',
-                    pdf: '20190227_00'
-                }
+                // {
+                //     title: '107飲水機第四季報告1',
+                //     date: '2019 / 2 / 27',
+                //     pdf: '20190227_00.pdf'
+                // }
             ],
             get template() { return TplDrinkingFountain[1](this.lead, this.data); }
         }

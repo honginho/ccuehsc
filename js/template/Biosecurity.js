@@ -15,14 +15,14 @@ function ComponentTable(category, lead, data) {
 
         if (data[i].docx) {
             file += `
-                <a href="./assets/${ category }/${ data[i].docx }.docx" download>
+                <a href="./assets/${ category }/${ data[i].docx }" download>
                     <span class="badge badge-primary">DOC</span>
                 </a>
             `;
         }
         else if (data[i].doc) {
             file += `
-                <a href="./assets/${ category }/${ data[i].doc }.doc" download>
+                <a href="./assets/${ category }/${ data[i].doc }" download>
                     <span class="badge badge-primary">DOC</span>
                 </a>
             `;
@@ -30,14 +30,14 @@ function ComponentTable(category, lead, data) {
 
         if (data[i].pdf) {
             file += `
-                <a href="./assets/${ category }/${ data[i].pdf }.pdf" download>
+                <a href="./assets/${ category }/${ data[i].pdf }" download>
                     <span class="badge badge-danger">PDF</span>
                 </a>
             `;
         }
         if (data[i].opt) {
             file += `
-                <a href="./assets/${ category }/${ data[i].opt }.opt" download>
+                <a href="./assets/${ category }/${ data[i].opt }" download>
                     <span class="badge badge-info">OPT</span>
                 </a>
             `;

@@ -22,31 +22,26 @@ const MainFooter = {
 const MainHeader = {
     template: `
         <section id="banner">
-            <div class="container">
-                <div class="row flex-lg-row-reverse">
-                    <div class="col-lg-4 col-sm-6">
-                        <nav>
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item">
-                                    <a href="http://www.ccu.edu.tw/">中正大學</a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                    <a href="#">中文</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#">English</a>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-
-                    <div class="col-lg-8">
-                        <img src="./img/logo2.png" alt="國立中正大學" class="img-fluid py-4">
-                    </div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+                <a id="nav-logo" class="navbar-brand d-flex align-items-end" href="./index.html">
+                    <img src="./img/cculogo.png" alt="CCU LOGO">
+                    <span style="padding-left: 2px; font-family: 'DFKai-sb'; font-weight: bold;">環安中心</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.ccu.edu.tw/">中正首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">English Mode</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-outline-light my-2 my-sm-0" href="mailto:chepec@ccu.edu.tw"><i class="fas fa-envelope"></i>聯絡我們</a>
                 </div>
-
-                <hr>
-            </div>
+            </nav>
         </section>
     `
 };
