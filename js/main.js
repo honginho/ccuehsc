@@ -18,15 +18,20 @@ let main = new Vue({
         // data
     },
     created: function () {
-        let id = this.getMetaDesc().split(',')[0];
-        let category = this.getMetaDesc().split(',')[1];
-        let countSubNav = NaviBar[id].details.length;
+        let id = this.getMetaDesc().split(',')[0]; // e.g. 0 v.s. 9
+        let category = this.getMetaDesc().split(',')[1]; // e.g. `News` v.s. `Train`
+        let countSubNav = NaviBar[id].details.length; // e.g. 1 v.s. 2
 
-        if (id > 2) {
+        if (id > 2 || id == 0) {
             for (let i = 0; i < countSubNav; i++) {
                 let subNavLead = NaviBar[id].details[i].lead;
                 this.getDBFile(i, category).then(res => {
-                    let details = this.CreateFilesTable(subNavLead, res);
+                    let details;
+                    if (id > 2)
+                        details = this.CreateFilesTable(subNavLead, res);
+                    else
+                        details = this.CreateNewsTable(subNavLead, res);
+
                     $('#sub-nav-' + id + '-' + i).html(details);
                 }).catch(err => {
                     console.log('Failed to get data:', err);
@@ -148,6 +153,72 @@ let main = new Vue({
 
             return tpl;
         },
+        CreateNewsTable(lead, data) {
+            let content = '';
+
+            if (lead !== '') {
+                lead = `<div class="alert alert-success" role="alert"> ${ lead } </div>`;
+            }
+
+            for (let i = data.length - 1; i >= 0; i--) {
+                let file = '';
+                let newpost = '';
+
+                if (data[i].docx) {
+                    file += `
+                        <a href="./assets/${ data[i].docx }" download>
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+                else if (data[i].doc) {
+                    file += `
+                        <a href="./assets/${ data[i].doc }" download>
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+
+                if (data[i].pdf) {
+                    file += `
+                        <a href="./assets/${ data[i].pdf }" download>
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+                if (data[i].opt) {
+                    file += `
+                        <a href="./assets/${ data[i].opt }" download>
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+
+                if (i < 3) newpost = 'class="new-post"';
+                content += `
+                    <li ${ newpost }>
+                        <small>${ data[i].date }</small> <strong style="font-size: 1.2rem;">${ file }</strong><br>
+                        ${ data[i].content }
+                    </li>
+                `;
+            }
+
+            let tpl =
+                `
+                    ${ lead }
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="news-list">
+                                <ul>
+                                    ${ content }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            return tpl;
+        }
     },
     components: {
         'MainFooter': MainFooter,

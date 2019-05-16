@@ -15,12 +15,10 @@ import { TplStrayAnimal } from './template/StrayAnimal.js';
 import { TplDrinkingFountain } from './template/DrinkingFountain.js';
 import { TplDownload } from './template/Download.js';
 
-// let News, About, Team, Trash, Hygiene, Animal, Biosecurity, Radioprotection, LaborHealth, Train, StrayAnimal, DrinkingFountain, Download;
-
 const News = {
     id: 0,
     title: '最新消息',
-    link: './index.html',
+    link: './news.html',
     details: [
         {
             title: '',
@@ -39,7 +37,7 @@ const News = {
                     pdf: '20190315_00.pdf'
                 }
             ],
-            get template() { return TplNews[0](this.lead, this.data); }
+            // get template() { return TplNews[0](this.lead, this.data); }
         }
     ]
 };
@@ -52,26 +50,26 @@ const About = {
         {
             title: '環安衛政策',
             lead: '',
-            data: [],
-            get template() { return TplAbout[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplAbout[0](this.lead, this.data); }
         },
         {
             title: '歷史沿革',
             lead: '',
-            data: [],
-            get template() { return TplAbout[1](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplAbout[1](this.lead, this.data); }
         },
         {
             title: '組織編制',
             lead: '',
-            data: [],
-            get template() { return TplAbout[2](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplAbout[2](this.lead, this.data); }
         },
         {
             title: '歷任中心主任',
             lead: '',
-            data: [],
-            get template() { return TplAbout[3](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplAbout[3](this.lead, this.data); }
         }
     ]
 };
@@ -84,20 +82,20 @@ const Team = {
         {
             title: '中心',
             lead: '',
-            data: [],
-            get template() { return TplTeam[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplTeam[0](this.lead, this.data); }
         },
         {
             title: '環境保護組',
             lead: '',
-            data: [],
-            get template() { return TplTeam[1](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplTeam[1](this.lead, this.data); }
         },
         {
             title: '安全衛生組',
             lead: '',
-            data: [],
-            get template() { return TplTeam[2](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplTeam[2](this.lead, this.data); }
         }
     ]
 };
@@ -110,8 +108,8 @@ const Trash = {
         {
             title: '',
             lead: '',
-            data: [],
-            get template() { return TplTrash[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplTrash[0](this.lead, this.data); }
         }
     ]
 };
@@ -124,8 +122,8 @@ const Hygiene = {
         {
             title: '',
             lead: '',
-            data: [],
-            get template() { return TplHygiene[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplHygiene[0](this.lead, this.data); }
         }
     ]
 };
@@ -146,8 +144,8 @@ const Animal = {
             //     }
             // ],
             // get template() { return TplAnimal[0](this.lead, this.data); }
-            data: '',
-            template: ''
+            // data: '',
+            // template: ''
         },
         {
             title: '相關表單',
@@ -195,8 +193,8 @@ const Animal = {
             //     }
             // ],
             // get template() { return TplAnimal[1](this.lead, this.data); }
-            data: '',
-            template: ''
+            // data: '',
+            // template: ''
         },
         {
             title: '其它',
@@ -214,8 +212,8 @@ const Animal = {
             //     }
             // ],
             // get template() { return TplAnimal[2](this.lead, this.data); }
-            data: '',
-            template: ''
+            // data: '',
+            // template: ''
         }
     ]
 };
@@ -228,14 +226,14 @@ const Biosecurity = {
         {
             title: '設置',
             lead: '',
-            data: [
+            // data: [
                 // {
                 //     title: '國立中正大學生物實驗安全委員會組織要點',
                 //     date: '2019 / 3 / 15',
                 //     pdf: '20190315_11.pdf'
                 // }
-            ],
-            get template() { return TplBiosecurity[0](this.lead, this.data); }
+            // ],
+            // get template() { return TplBiosecurity[0](this.lead, this.data); }
         },
         {
             title: '相關表單',
@@ -245,7 +243,7 @@ const Biosecurity = {
                 (2)國科會計畫申請書第一頁<br>
                 (3)研究計畫中英文摘要<br>
                 (4)基因重組相關之研究方法與材`,
-            data: [
+            // data: [
                 // {
                 //     title: '生物實驗安全委員會基因重組實驗申請書',
                 //     date: '2019 / 3 / 15',
@@ -256,14 +254,14 @@ const Biosecurity = {
                 //     date: '2019 / 3 / 15',
                 //     docx: '20190315_12.docx'
                 // }
-            ],
-            get template() { return TplBiosecurity[1](this.lead, this.data); }
+            // ],
+            // get template() { return TplBiosecurity[1](this.lead, this.data); }
         },
         {
             title: '其它',
             lead: '',
-            data: [],
-            get template() { return TplBiosecurity[2](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplBiosecurity[2](this.lead, this.data); }
         }
     ]
 };
@@ -276,20 +274,20 @@ const Radioprotection = {
         {
             title: '設置',
             lead: '',
-            data: [],
-            get template() { return TplRadioprotection[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplRadioprotection[0](this.lead, this.data); }
         },
         {
             title: '輻射防護計畫書',
             lead: '',
-            data: [],
-            get template() { return TplRadioprotection[1](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplRadioprotection[1](this.lead, this.data); }
         },
         {
             title: '相關表單',
             lead: '',
-            data: [],
-            get template() { return TplRadioprotection[2](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplRadioprotection[2](this.lead, this.data); }
         }
     ]
 };
@@ -302,26 +300,26 @@ const LaborHealth = {
         {
             title: '特殊化學品健檢',
             lead: '',
-            data: [],
-            get template() { return TplLaborHealth[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplLaborHealth[0](this.lead, this.data); }
         },
         {
             title: '生安第二等級健檢',
             lead: '',
-            data: [],
-            get template() { return TplLaborHealth[1](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplLaborHealth[1](this.lead, this.data); }
         },
         {
             title: '一般勞工健檢',
             lead: '',
-            data: [],
-            get template() { return TplLaborHealth[2](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplLaborHealth[2](this.lead, this.data); }
         },
         {
             title: '輻射防護健檢',
             lead: '',
-            data: [],
-            get template() { return TplLaborHealth[3](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplLaborHealth[3](this.lead, this.data); }
         }
     ]
 };
@@ -334,14 +332,14 @@ const Train = {
         {
             title: '108年',
             lead: '',
-            data: [],
-            get template() { return TplTrain[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplTrain[0](this.lead, this.data); }
         },
         {
             title: '107年',
             lead: '',
-            data: [],
-            get template() { return TplTrain[1](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplTrain[1](this.lead, this.data); }
         }
     ]
 };
@@ -354,20 +352,20 @@ const StrayAnimal = {
         {
             title: '政策',
             lead: '',
-            data: [],
-            get template() { return TplStrayAnimal[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplStrayAnimal[0](this.lead, this.data); }
         },
         {
             title: '活動',
             lead: '',
-            data: [],
-            get template() { return TplStrayAnimal[1](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplStrayAnimal[1](this.lead, this.data); }
         },
         {
             title: '相關表單',
             lead: '',
-            data: [],
-            get template() { return TplStrayAnimal[2](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplStrayAnimal[2](this.lead, this.data); }
         }
     ]
 };
@@ -380,20 +378,20 @@ const DrinkingFountain = {
         {
             title: '108年',
             lead: '',
-            data: [],
-            get template() { return TplDrinkingFountain[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplDrinkingFountain[0](this.lead, this.data); }
         },
         {
             title: '107年',
             lead: '',
-            data: [
+            // data: [
                 // {
                 //     title: '107飲水機第四季報告1',
                 //     date: '2019 / 2 / 27',
                 //     pdf: '20190227_00.pdf'
                 // }
-            ],
-            get template() { return TplDrinkingFountain[1](this.lead, this.data); }
+            // ],
+            // get template() { return TplDrinkingFountain[1](this.lead, this.data); }
         }
     ]
 };
@@ -406,8 +404,8 @@ const Download = {
         {
             title: '',
             lead: '',
-            data: [],
-            get template() { return TplDownload[0](this.lead, this.data); }
+            // data: [],
+            // get template() { return TplDownload[0](this.lead, this.data); }
         }
     ]
 };

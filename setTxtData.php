@@ -3,7 +3,7 @@
 if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
     $password = htmlspecialchars($_POST['auth']);
 
-    if ($password == "") {
+    if ($password == "wmyehs") {
         if (isset($_POST["title"]) && isset($_POST["category"]) && isset($_POST["subpage"])) {
             date_default_timezone_set("Asia/Taipei");
             $now = new DateTime();
@@ -12,9 +12,9 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
             $time = $datetime[0] . "-" . str_replace(":", "-", $datetime[1]);
 
             // 取得 $_POST 資料
-            $title = htmlspecialchars($_POST["title"]); // 取得 index
+            $title = htmlspecialchars($_POST["title"]); // 取得標題
             $category = htmlspecialchars($_POST["category"]); // 取得分類
-            $subpage = htmlspecialchars($_POST["subpage"]); // 取得分類
+            $subpage = htmlspecialchars($_POST["subpage"]); // 取得分類頁面
             $filepath = "./assets/database/" . $category . $subpage . ".txt";
 
             $filenameFragment = explode(".", $_FILES["file"]["name"]);
@@ -28,11 +28,23 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
             }
             else {
                 // 資料轉 json 格式
-                $dataToJson = [
-                    "title" => $title,
-                    "date" => $dateDB,
-                    $extension => $filename
-                ];
+                if ($category != "News") {
+                    $dataToJson = [
+                        "title" => $title,
+                        "date" => $dateDB,
+                        $extension => $filename
+                    ];
+                }
+                else {
+                    $content = htmlspecialchars($_POST["content"]); // 取得最新消息內容
+                    $dataToJson = [
+                        "title" => $title,
+                        "date" => $dateDB,
+                        "content" => $content,
+                        $extension => $filename
+                    ];
+                }
+
                 $data = json_encode($dataToJson, JSON_UNESCAPED_UNICODE) . ";;;\n";
 
                 if ($_FILES["file"]["error"] > 0) {

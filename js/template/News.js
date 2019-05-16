@@ -4,7 +4,12 @@
 const TplNews = [
     function (lead='', data=[]) {
         let content = '';
-        for (let i = 0; i < data.length; i++) {
+
+        if (lead !== '') {
+            lead = `<div class="alert alert-success" role="alert"> ${ lead } </div>`;
+        }
+
+        for (let i = data.length - 1; i >= 0; i--) {
             let file = '';
             let newpost = '';
 

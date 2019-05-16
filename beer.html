@@ -50,16 +50,15 @@
                     <h3 style="margin-bottom: 1rem;">新增『最新消息』或『檔案』</h3>
                     <form action="setTxtData.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="title">標題</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="請輸入要顯示的標題" required>
-                        </div>
-                        <div class="form-group">
                             <label for="">上傳檔案</label>
                             <div class="custom-file">
-                                <!-- <input type="file" class="custom-file-input" id="file" name="file" accept="application/msword, application/pdf" required> -->
                                 <input type="file" class="custom-file-input" id="file" name="file" accept=".doc, .docx, .opt, .pdf" required>
                                 <label class="custom-file-label" for="file"></label>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">標題</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="請輸入要顯示的標題" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -87,6 +86,11 @@
                                     </option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="form-group" v-if="selectedCategory === 'News'">
+                            <label for="content">內容（最新消息）</label>
+                            <textarea class="form-control" id="content" name="content" placeholder="請輸入要顯示的消息內容" rows="2" required></textarea>
+                            <!-- <input type="text" class="form-control" id="content" name="content" placeholder="請輸入要顯示的消息內容" required> -->
                         </div>
                         <div class="form-group">
                             <label for="auth">密碼</label>
