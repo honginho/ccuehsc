@@ -3,7 +3,7 @@
 if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
     $password = htmlspecialchars($_POST['auth']);
 
-    if ($password == "wmyehs") {
+    if ($password == "") {
         if (isset($_POST["title"]) && isset($_POST["category"]) && isset($_POST["subpage"])) {
             date_default_timezone_set("Asia/Taipei");
             $now = new DateTime();

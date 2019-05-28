@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="0,News">
+    <meta name="description" content="-1,Main">
 
     <title> 環境保護及工業安全衛生中心 - 國立中正大學 </title>
 
@@ -16,149 +16,715 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC">
     <link rel="stylesheet" href="./css/var.css">
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            10% {
+                transform: rotate(10deg);
+            }
+
+            30% {
+                transform: rotate(0deg);
+            }
+
+            40% {
+                transform: rotate(-10deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            60% {
+                transform: rotate(5deg);
+            }
+
+            70% {
+                transform: rotate(0deg);
+            }
+
+            80% {
+                transform: rotate(-5deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes sonar {
+            0% {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        body {
+            font-size: 0.9rem;
+        }
+
+        .page-wrapper .sidebar-wrapper,
+        .sidebar-wrapper .sidebar-brand>a,
+        .sidebar-wrapper .sidebar-dropdown>a:after,
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before,
+        .sidebar-wrapper ul li a i,
+        .page-wrapper .page-content,
+        .sidebar-wrapper .sidebar-search input.search-menu,
+        .sidebar-wrapper .sidebar-search .input-group-text,
+        .sidebar-wrapper .sidebar-menu ul li a,
+        #show-sidebar,
+        #close-sidebar {
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        /*----------------page-wrapper----------------*/
+
+        .page-wrapper {
+            height: 100vh;
+        }
+
+        .page-wrapper .theme {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 4px;
+            margin: 2px;
+        }
+
+        .page-wrapper .theme.chiller-theme {
+            background: #1e2229;
+        }
+
+        /*----------------toggeled sidebar----------------*/
+
+        .page-wrapper.toggled .sidebar-wrapper {
+            left: 0px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .page-wrapper.toggled .page-content {
+                padding-left: 300px;
+            }
+        }
+
+        /*----------------show sidebar button----------------*/
+        #show-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50vh;
+            border-radius: 0 4px 4px 0px;
+            width: 26px;
+            transition-delay: 0.3s;
+        }
+
+        .page-wrapper.toggled #show-sidebar {
+            left: -40px;
+        }
+
+        /*----------------sidebar-wrapper----------------*/
+
+        .sidebar-wrapper {
+            width: 260px;
+            height: 100%;
+            max-height: 100%;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            z-index: 999;
+        }
+
+        .sidebar-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-wrapper a {
+            text-decoration: none;
+        }
+
+        /*----------------sidebar-content----------------*/
+
+        .sidebar-content {
+            max-height: 100%;; /* calc(100% - 30px); */
+            height: 100%;; /* calc(100% - 30px); */
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .sidebar-content.desktop {
+            overflow-y: hidden;
+        }
+
+        /*--------------------sidebar-brand----------------------*/
+
+        .sidebar-wrapper .sidebar-brand {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-wrapper .sidebar-brand>a {
+            text-transform: uppercase;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        .sidebar-wrapper .sidebar-brand #close-sidebar {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /*--------------------sidebar-header----------------------*/
+
+        .sidebar-wrapper .sidebar-header {
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-pic {
+            float: left;
+            width: 60px;
+            padding: 2px;
+            border-radius: 12px;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-pic img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-info {
+            float: left;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-info>span {
+            display: block;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-info .user-role {
+            font-size: 12px;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-info .user-status {
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .sidebar-wrapper .sidebar-header .user-info .user-status i {
+            font-size: 8px;
+            margin-right: 4px;
+            color: #5cb85c;
+        }
+
+        /*-----------------------sidebar-search------------------------*/
+
+        .sidebar-wrapper .sidebar-search>div {
+            padding: 10px 20px;
+        }
+
+        /*----------------------sidebar-menu-------------------------*/
+
+        .sidebar-wrapper .sidebar-menu {
+            padding-bottom: 10px;
+        }
+
+        .sidebar-wrapper .sidebar-menu .header-menu span {
+            font-weight: bold;
+            font-size: 14px;
+            padding: 15px 20px 5px 20px;
+            display: inline-block;
+        }
+
+        .sidebar-wrapper .sidebar-menu ul li a {
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            position: relative;
+            padding: 8px 30px 8px 20px;
+        }
+
+        .sidebar-wrapper .sidebar-menu ul li a i {
+            margin-right: 10px;
+            font-size: 12px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .sidebar-wrapper .sidebar-menu ul li a:hover>i::before {
+            display: inline-block;
+            animation: swing ease-in-out 0.5s 1 alternate;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown>a:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f105";
+            font-style: normal;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            background: 0 0;
+            position: absolute;
+            right: 15px;
+            top: 14px;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
+            padding: 5px 0;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
+            padding-left: 25px;
+            font-size: 13px;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
+            content: "\f111";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 400;
+            font-style: normal;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-right: 10px;
+            font-size: 8px;
+        }
+
+        .sidebar-wrapper .sidebar-menu ul li a span.label,
+        .sidebar-wrapper .sidebar-menu ul li a span.badge {
+            float: right;
+            margin-top: 8px;
+            margin-left: 5px;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .badge,
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .label {
+            float: right;
+            margin-top: 0px;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-submenu {
+            display: none;
+        }
+
+        .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active>a:after {
+            transform: rotate(90deg);
+            right: 17px;
+        }
+
+        /*--------------------------side-footer------------------------------*/
+
+        .sidebar-footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+        }
+
+        .sidebar-footer>a {
+            flex-grow: 1;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            position: relative;
+        }
+
+        .sidebar-footer>a .notification {
+            position: absolute;
+            top: 0;
+        }
+
+        .badge-sonar {
+            display: inline-block;
+            background: #980303;
+            border-radius: 50%;
+            height: 8px;
+            width: 8px;
+            position: absolute;
+            top: 0;
+        }
+
+        .badge-sonar:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 2px solid #980303;
+            opacity: 0;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            animation: sonar 1.5s infinite;
+        }
+
+        /*--------------------------page-content-----------------------------*/
+
+        .page-wrapper .page-content {
+            display: inline-block;
+            width: 100%;
+            padding-left: 0px;
+            padding-top: 20px;
+        }
+
+        .page-wrapper .page-content>div {
+            padding: 20px 40px;
+        }
+
+        .page-wrapper .page-content {
+            overflow-x: hidden;
+        }
+
+        /*------scroll bar---------------------*/
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 7px;
+        }
+
+        ::-webkit-scrollbar-button {
+            width: 0px;
+            height: 0px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #525965;
+            border: 0px none #ffffff;
+            border-radius: 0px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #525965;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: #525965;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            border: 0px none #ffffff;
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-track:hover {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-track:active {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+
+        /*-----------------------------chiller-theme-------------------------------------------------*/
+
+        .chiller-theme .sidebar-wrapper {
+            background: #31353D;
+        }
+
+        .chiller-theme .sidebar-wrapper .sidebar-header,
+        .chiller-theme .sidebar-wrapper .sidebar-search,
+        .chiller-theme .sidebar-wrapper .sidebar-menu {
+            border-top: 1px solid #3a3f48;
+        }
+
+        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+        .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-role,
+        .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-status,
+        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+        .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text,
+        .chiller-theme .sidebar-wrapper .sidebar-brand>a,
+        .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
+        .chiller-theme .sidebar-footer>a {
+            color: #818896;
+        }
+
+        .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
+        .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active>a,
+        .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
+        .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
+        .chiller-theme .sidebar-footer>a:hover i {
+            color: #b8bfce;
+        }
+
+        .page-wrapper.chiller-theme.toggled #close-sidebar {
+            color: #bdbdbd;
+        }
+
+        .page-wrapper.chiller-theme.toggled #close-sidebar:hover {
+            color: #ffffff;
+        }
+
+        .chiller-theme .sidebar-wrapper ul li:hover a i,
+        .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
+        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
+        .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
+            color: #16c7ff;
+            text-shadow: 0px 0px 10px rgba(22, 199, 255, 0.5);
+        }
+
+        .chiller-theme .sidebar-wrapper .sidebar-menu ul li a i,
+        .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
+        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+        .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
+            background: #3a3f48;
+        }
+
+        .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
+            color: #6c7b88;
+        }
+
+        .chiller-theme .sidebar-footer {
+            background: #3a3f48;
+            box-shadow: 0px -1px 5px #282c33;
+            border-top: 1px solid #464a52;
+        }
+
+        .chiller-theme .sidebar-footer>a:first-child {
+            border-left: none;
+        }
+
+        .chiller-theme .sidebar-footer>a:last-child {
+            border-right: none;
+        }
+    </style>
+    <style>
+        #show-sidebar {
+            padding: 2.25rem 0.2rem;
+        }
+
+        #show-sidebar:hover {
+            filter: brightness(2);
+            transition: 0s;
+        }
+
+        .sidebar-content {
+            display: flex;
+        }
+
+        .sidebar-content > div {
+            height: 100%;
+        }
+
+        #close-sidebar2 {
+            position: relative;
+            min-width: 26px;
+            /*border: 1px solid yellowgreen;*/
+            color: #fff;
+        }
+
+        #close-sidebar2 > div {
+            position: fixed;
+            width: 26px;
+            height: 100%;
+            padding: 2.25rem 0.2rem;
+            background-color: #31353d;
+            cursor: pointer;
+        }
+
+        #close-sidebar2 > div:hover {
+            filter: brightness(2);
+            /*color: red;*/
+        }
+
+        #close-sidebar2 i {
+            padding-top: 50vh;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="height: 100vh;" class="page-wrapper chiller-theme">
         <main-header></main-header>
 
-        <section id="landing">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" style="z-index: 99999;" href="#" onclick="return false;">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div style="width: 100%;">
+                    <div class="sidebar-brand">
+                        <b style="width: 100%; color: #b8bfce; font-size: 1.2rem; letter-spacing: .1rem;">資訊分類清單</b>
+                        <div id="close-sidebar">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <!-- sidebar-search  -->
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li>
+                                <a href="news.html">
+                                    <!-- <i class="fas fa-fire"></i> -->
+                                    <span>最新消息</span>
+                                    <!-- <span class="badge badge-pill badge-primary">Beta</span> -->
+                                </a>
+                            </li>
+                            <li>
+                                <a href="about.html">
+                                    <span>關於中心</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="team.html">
+                                    <span>業務職掌</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="trash.html">
+                                    <span>實驗廢棄物管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="hygiene.html">
+                                    <span>實驗室安全衛生管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="animal.html">
+                                    <span>實驗動物管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="biosecurity.html">
+                                    <span>生物安全管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="radioprotection.html">
+                                    <span>輻射防護管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="labor-health.html">
+                                    <span>勞工健康管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="train.html">
+                                    <span>教育訓練</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="stray-animal.html">
+                                    <span>校園流浪犬</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="drinking-fountain.html">
+                                    <span>飲水機管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="download.html">
+                                    <span>表單下載</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- <div id="close-sidebar2" class="sidebar-side-close">
+                    <div>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                </div> -->
+            </div>
+        </nav>
+
+        <main class="page-content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-6 offset-lg-2" style="z-index: 1;">
-                        <img src="./img/logo2.png" alt="國立中正大學" class="img-fluid py-4">
-                    </div>
+                    <div class="col-lg-8">
+                        <section id="landing">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-12" style="z-index: 1;">
+                                        <img src="./img/logo2.png" alt="國立中正大學" class="img-fluid py-4">
+                                    </div>
 
-                    <div class="col-lg-6 offset-lg-3" style="position: relative; top:-50px; max-width: 800px; padding: 4px; border: 1px solid #dee2e6; border-radius: 30px;">
-                        <div id="carouselEg" class="carousel slide" data-ride="carousel" data-interval="3000">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselEg" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselEg" data-slide-to="1"></li>
-                                <li data-target="#carouselEg" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>...</h5>
-                                        <p>...</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="Second slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>...</h5>
-                                        <p>...</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>...</h5>
-                                        <p>...</p>
+                                    <div class="col-lg-11 offset-lg-1" style="position: relative; top:-50px; padding: 4px; border: 1px solid #dee2e6; border-radius: 30px;">
+                                        <div id="carouselEg" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#carouselEg" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carouselEg" data-slide-to="1"></li>
+                                                <li data-target="#carouselEg" data-slide-to="2"></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="First slide">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>...</h5>
+                                                        <p>...</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="Second slide">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>...</h5>
+                                                        <p>...</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="Third slide">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>...</h5>
+                                                        <p>...</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselEg" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#carouselEg" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselEg" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselEg" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4">
+                        <section id="news"></section>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- <section>
-            <div class="container p-5">
-                <div class="row justify-content-around">
-                    <div class="card mb-4" onclick="alert('a')">
-                        <div class="card-body">
-                            <h5 class="card-title">最新消息</h5>
-                        </div>
-                    </div>
-                    <div class="card mb-4" onclick="alert('a')">
-                        <div class="card-body">
-                            <h5 class="card-title">關於中心</h5>
-                        </div>
-                    </div>
-                    <div class="card mb-4" onclick="alert('a')">
-                        <div class="card-body">
-                            <h5 class="card-title">業務職掌</h5>
-                        </div>
-                    </div>
-                    <div class="card mb-4" onclick="alert('a')">
-                        <div class="card-body">
-                            <h5 class="card-title">實驗廢棄物管理</h5>
-                        </div>
-                    </div>
-                    <div class="card mb-4" onclick="alert('a')">
-                        <div class="card-body">
-                            <h5 class="card-title">實驗室安全衛生管理</h5>
-                        </div>
-                    </div>
-                    <div class="card mb-4" onclick="alert('a')">
-                        <div class="card-body">
-                            <h5 class="card-title">實驗動物管理</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <section>
-            <div class="container p-5">
-                <div class="row">
-                    <side-nav :id="0"></side-nav>
-                    <sub-nav-and-content :id="0"></sub-nav-and-content>
-                </div>
-            </div>
-        </section>
-
-        <!-- <section>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="./img/eh&sc.png" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="./img/eh&sc.png" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="./img/eh&sc.png" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </section> -->
+        </main>
 
         <main-footer></main-footer>
     </div>
@@ -170,6 +736,45 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <script type="module" src="./js/main.js"></script>
+    <script>
+        jQuery(function ($) {
+            $(".sidebar-dropdown > a").click(function() {
+                $(".sidebar-submenu").slideUp(200);
+                if ($(this).parent().hasClass("active")) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this).parent().removeClass("active");
+                }
+                else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this).next(".sidebar-submenu").slideDown(200);
+                    $(this).parent().addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function() {
+                $(".page-wrapper").removeClass("toggled");
+            });
+
+            $("#banner").click(function() {
+                console.log('banner');
+                $(".page-wrapper").removeClass("toggled");
+            });
+
+            $(".page-content").click(function() {
+                console.log('page-content');
+                $(".page-wrapper").removeClass("toggled");
+            });
+
+            $("footer").click(function() {
+                console.log('footer');
+                $(".page-wrapper").removeClass("toggled");
+            });
+
+            $("#show-sidebar").click(function() {
+                $(".page-wrapper").addClass("toggled");
+            });
+        });
+    </script>
 </body>
 
 </html>

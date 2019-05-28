@@ -19,10 +19,11 @@ let main = new Vue({
     },
     created: function () {
         let id = this.getMetaDesc().split(',')[0]; // e.g. 0 v.s. 9
-        let category = this.getMetaDesc().split(',')[1]; // e.g. `News` v.s. `Train`
-        let countSubNav = NaviBar[id].details.length; // e.g. 1 v.s. 2
 
         if (id > 2 || id == 0) {
+            let category = this.getMetaDesc().split(',')[1]; // e.g. `News` v.s. `Train`
+            let countSubNav = NaviBar[id].details.length; // e.g. 1 v.s. 2
+
             for (let i = 0; i < countSubNav; i++) {
                 let subNavLead = NaviBar[id].details[i].lead;
                 this.getDBFile(i, category).then(res => {
@@ -33,6 +34,23 @@ let main = new Vue({
                         details = this.CreateNewsTable(subNavLead, res);
 
                     $('#sub-nav-' + id + '-' + i).html(details);
+                }).catch(err => {
+                    console.log('Failed to get data:', err);
+                });
+            }
+        }
+        else if (id == -1) {
+            let category = 'News'; // e.g. `News` v.s. `Train`
+            let realID = 0;
+            let countSubNav = NaviBar[realID].details.length; // e.g. 1 v.s. 2
+
+            for (let i = 0; i < countSubNav; i++) {
+                let subNavLead = NaviBar[realID].details[i].lead;
+                this.getDBFile(i, category).then(res => {
+                    let details;
+                    details = this.CreateMainNewsTable(subNavLead, res);
+
+                    $('#news').html(details);
                 }).catch(err => {
                     console.log('Failed to get data:', err);
                 });
@@ -215,6 +233,56 @@ let main = new Vue({
                             </div>
                         </div>
                     </div>
+                `;
+
+            return tpl;
+        },
+        CreateMainNewsTable(lead, data) {
+            let content = '';
+
+            if (lead !== '') {
+                lead = `<div class="alert alert-success" role="alert"> ${ lead } </div>`;
+            }
+
+            let limit = (data.length - 6 >= 0) ? (data.length-6) : 0;
+            for (let i = data.length - 1; i >= limit; i--) {
+                let filePath = '';
+                let newpost = '';
+
+                if (data[i].docx) {
+                    filePath += `./assets/${ data[i].docx }`;
+                }
+                else if (data[i].doc) {
+                    filePath += `./assets/${ data[i].doc }`;
+                }
+
+                if (data[i].pdf) {
+                    filePath += `./assets/${ data[i].pdf }`;
+                }
+                if (data[i].opt) {
+                    filePath += `./assets/${ data[i].opt }`;
+                }
+
+                content += `
+                    <a href="${ filePath }" download class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">
+                                <strong style="font-size: 1.2rem; color: var(--main-color);">${ data[i].title }</strong>
+                            </h5>
+                            <small class="text-muted">${ data[i].date }</small>
+                        </div>
+                        <p class="mb-1 text-truncate" title="${ data[i].content }">${ data[i].content }</p>
+                    </a>
+                `;
+            }
+
+            let tpl =
+                `
+                    ${ lead }
+                    <div class="list-group mt-5">
+                        ${content}
+                    </div>
+                    <a href="./news.html" class="btn btn-primary mt-3" style="background-color: var(--main-color); border-color: var(--main-color);">查看所有消息</a>
                 `;
 
             return tpl;

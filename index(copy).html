@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="0,News">
+
+    <title> 環境保護及工業安全衛生中心 - 國立中正大學 </title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC">
+    <link rel="stylesheet" href="./css/var.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <main-header></main-header>
+
+        <section id="landing">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-2" style="z-index: 1;">
+                        <img src="./img/logo2.png" alt="國立中正大學" class="img-fluid py-4">
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3" style="position: relative; top:-50px; max-width: 800px; padding: 4px; border: 1px solid #dee2e6; border-radius: 30px;">
+                        <div id="carouselEg" class="carousel slide" data-ride="carousel" data-interval="3000">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselEg" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselEg" data-slide-to="1"></li>
+                                <li data-target="#carouselEg" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="First slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>...</h5>
+                                        <p>...</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="Second slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>...</h5>
+                                        <p>...</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="./img/carousel.jpg" alt="Third slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>...</h5>
+                                        <p>...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselEg" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselEg" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container p-5">
+                <div class="row">
+                    <side-nav :id="0"></side-nav>
+                    <sub-nav-and-content :id="0"></sub-nav-and-content>
+                </div>
+            </div>
+        </section>
+
+        <main-footer></main-footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
