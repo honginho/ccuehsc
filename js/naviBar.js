@@ -148,25 +148,17 @@ const Radioprotection = {
 
 const LaborHealth = {
     id: 8,
-    title: '勞工健康管理',
+    title: '勞工管理',
     link: './labor-health.html',
     details: [
         {
-            title: '特殊化學品健檢',
+            title: '健康管理',
             lead: '',
         },
         {
-            title: '生安第二等級健檢',
+            title: '四大計畫',
             lead: '',
         },
-        {
-            title: '一般勞工健檢',
-            lead: '',
-        },
-        {
-            title: '輻射防護健檢',
-            lead: '',
-        }
     ]
 };
 

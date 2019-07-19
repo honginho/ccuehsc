@@ -1,9 +1,9 @@
 <?php
 
 if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
-    $password = htmlspecialchars($_POST['auth']);
+    $password = htmlspecialchars($_POST["auth"]);
 
-    if ($password == "") {
+    if ($password == "a") {
         if (isset($_POST["title"]) && isset($_POST["category"]) && isset($_POST["subpage"])) {
             date_default_timezone_set("Asia/Taipei");
             $now = new DateTime();
@@ -32,7 +32,8 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
                     $dataToJson = [
                         "title" => $title,
                         "date" => $dateDB,
-                        $extension => $filename
+                        $extension => $filename,
+                        "status" => 1
                     ];
                 }
                 else {
@@ -41,7 +42,8 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
                         "title" => $title,
                         "date" => $dateDB,
                         "content" => $content,
-                        $extension => $filename
+                        $extension => $filename,
+                        "status" => 1
                     ];
                 }
 
@@ -49,10 +51,14 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
 
                 if ($_FILES["file"]["error"] > 0) {
                     echo "錯誤: " . $_FILES["file"]["error"];
+                    header("refresh:2; url=beer.html", true, 301);
+                    exit();
                 }
                 else {
                     if (file_exists("./assets/" . $filename)) {
                         echo "檔案已經存在，請勿重覆上傳相同檔案。";
+                        header("refresh:2; url=beer.html", true, 301);
+                        exit();
                     }
                     else {
                         // 寫入資料
@@ -68,8 +74,9 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
                 $categorySplit = preg_split('/(?=[A-Z])/', $category, -1, PREG_SPLIT_NO_EMPTY);
                 $category = $categorySplit[0];
                 for ($i = 1; $i < count($categorySplit); $i++) {
-                    $category .= $categorySplit[$i];
+                    $category .= "-" . $categorySplit[$i];
                 }
+                // var_dump($category); die();
 
                 header("Location: " . strtolower($category) . ".html", true, 301);
                 exit();

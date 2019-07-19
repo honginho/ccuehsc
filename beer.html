@@ -46,58 +46,133 @@
 
         <section>
             <div class="container p-5">
-                <div class="row">
-                    <h3 style="margin-bottom: 1rem;">新增『最新消息』或『檔案』</h3>
-                    <form action="setTxtData.php" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="">上傳檔案</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="file" name="file" accept=".doc, .docx, .opt, .pdf" required>
-                                <label class="custom-file-label" for="file"></label>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="new-tab" data-toggle="tab" href="#new" role="tab" aria-controls="new" aria-selected="true">新增</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" aria-selected="false">修改</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                        <h3 class="my-3">新增『最新消息』或『檔案』</h3>
+                        <form action="setTxtData.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="">上傳檔案</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="file" name="file" accept=".doc, .docx, .opt, .pdf" required>
+                                    <label class="custom-file-label" for="file"></label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="title">標題</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="請輸入要顯示的標題" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="category">類別</label>
-                                <select class="form-control" id="category" name="category" v-model="selectedCategory" required>
-                                    <option value="">請選擇</option>
-                                    <option v-for="cat in category" :value=" cat.value">
-                                        {{ cat.title }}
-                                    </option>
-                                </select>
+                            <div class="form-group">
+                                <label for="title">標題</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="請輸入要顯示的標題" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="subpage">頁面</label>
-                                <select class="form-control" id="subpage" name="subpage" required>
-                                    <template v-if="selectedCategory === ''">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="category">類別</label>
+                                    <select class="form-control" id="category" name="category" v-model="selectedCategory" required>
                                         <option value="">請選擇</option>
-                                    </template>
-                                    <option v-for="detail in subpage[selectedCategory]" :value="subpage[selectedCategory].indexOf(detail)">
-                                        <template v-if="detail === ''">
-                                            無
+                                        <option v-for="cat in category" :value=" cat.value">
+                                            {{ cat.title }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="subpage">頁面</label>
+                                    <select class="form-control" id="subpage" name="subpage" required>
+                                        <template v-if="selectedCategory === ''">
+                                            <option value="">請選擇</option>
                                         </template>
-                                        <template v-else>
-                                            {{ detail }}
-                                        </template>
-                                    </option>
-                                </select>
+                                        <option v-for="detail in subpage[selectedCategory]" :value="subpage[selectedCategory].indexOf(detail)">
+                                            <template v-if="detail === ''">
+                                                無
+                                            </template>
+                                            <template v-else>
+                                                {{ detail }}
+                                            </template>
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
+                            <div class="form-group" v-if="selectedCategory === 'News'">
+                                <label for="content">內容（最新消息）</label>
+                                <textarea class="form-control" id="content" name="content" placeholder="請輸入要顯示的消息內容" rows="2" required></textarea>
+                                <!-- <input type="text" class="form-control" id="content" name="content" placeholder="請輸入要顯示的消息內容" required> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="auth">密碼</label>
+                                <input type="password" class="form-control" id="auth" name="auth" placeholder="●●●●●●●●" required>
+                            </div>
+                            <button type="submit" class="btn btn-dark">送出</button>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                        <h3 class="my-3">修改『最新消息』或『其它頁面』</h3>
+                        <form action="editTxtData.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="category_edit">類別</label>
+                                    <select class="form-control" id="category_edit" name="category_edit" v-model="selectedCategoryEdit" required>
+                                        <option value="">請選擇</option>
+                                        <option v-for="cat in category" :value=" cat.value">
+                                            {{ cat.title }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="subpage_edit">頁面</label>
+                                    <select class="form-control" id="subpage_edit" name="subpage_edit" v-model="selectedSubpageEdit" required>
+                                        <template v-if="selectedCategoryEdit === ''">
+                                            <option value="">請選擇</option>
+                                        </template>
+                                        <option v-for="detail in subpage[selectedCategoryEdit]" :value="subpage[selectedCategoryEdit].indexOf(detail)">
+                                            <template v-if="detail === ''">
+                                                無
+                                            </template>
+                                            <template v-else>
+                                                {{ detail }}
+                                            </template>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- <button type="submit" class="btn btn-dark">送出</button> -->
+                        </form>
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="checkWhoUR" tabindex="-1" role="dialog" aria-labelledby="To check the user is admin." aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">確認身份</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="form-group" v-if="selectedCategory === 'News'">
-                            <label for="content">內容（最新消息）</label>
-                            <textarea class="form-control" id="content" name="content" placeholder="請輸入要顯示的消息內容" rows="2" required></textarea>
-                            <!-- <input type="text" class="form-control" id="content" name="content" placeholder="請輸入要顯示的消息內容" required> -->
+                        <div class="modal-body">
+                            <form id="edit-form" action="editTxtData.php" method="POST">
+                                <input type="hidden" name="category_edit_item" value="">
+                                <input type="hidden" name="subpage_edit_item" value="">
+                                <input type="hidden" name="title_edit_item" value="">
+                                <input type="hidden" name="filename_edit_item" value="">
+                                <input type="hidden" name="filenameExtension_edit_item" value="">
+                                <div class="form-group">
+                                    <label for="auth_edit">密碼</label>
+                                    <input type="password" class="form-control" id="auth_edit" name="auth_edit" placeholder="●●●●●●●●" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger mr-2">刪除</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="auth">密碼</label>
-                            <input type="password" class="form-control" id="auth" name="auth" placeholder="●●●●●●●●" required>
-                        </div>
-                        <button type="submit" class="btn btn-dark">送出</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -112,6 +187,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <script type="module" src="./js/admin.js"></script>
+    <script>
+        function prepareEditDataToModal(data) {
+            $('#edit-form input[name="category_edit_item"]').val(data[0]);
+            $('#edit-form input[name="subpage_edit_item"]').val(data[1]);
+            $('#edit-form input[name="title_edit_item"]').val(data[2]);
+            $('#edit-form input[name="filename_edit_item"]').val(data[3]);
+            $('#edit-form input[name="filenameExtension_edit_item"]').val(data[4]);
+        }
+    </script>
 </body>
 
 </html>

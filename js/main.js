@@ -58,45 +58,6 @@ let main = new Vue({
         }
     },
     methods: {
-        setData(rawData) {
-            let dataFragment = rawData.split(';;;');
-            let output = [];
-            for (let i = 0; i < dataFragment.length - 1; i++) {
-                output.push(JSON.parse(dataFragment[i]));
-            }
-            return output;
-        },
-        getDBFile(index, category) {
-            let self = this;
-
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: './getTxtData.php',
-                    type: 'POST',
-                    data: {
-                        index: index,
-                        category: category
-                    },
-                    success: function(res) {
-                        resolve(self.setData(res));
-                    },
-                    error: function(err) {
-                        reject(err);
-                    }
-                });
-            });
-        },
-        getMetaDesc(metaName='description') {
-            let metas = document.getElementsByTagName('meta');
-
-            for (let i = 0; i < metas.length; i++) {
-                if (metas[i].getAttribute('name') === metaName) {
-                    return metas[i].getAttribute('content');
-                }
-            }
-
-            return '';
-        },
         CreateFilesTable(lead, data) {
             let content = '';
 
@@ -109,14 +70,14 @@ let main = new Vue({
 
                 if (data[i].docx) {
                     file += `
-                        <a href="./assets/${ data[i].docx }" download>
+                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }">
                             <span class="badge badge-primary">DOCX</span>
                         </a>
                     `;
                 }
                 else if (data[i].doc) {
                     file += `
-                        <a href="./assets/${ data[i].doc }" download>
+                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }">
                             <span class="badge badge-primary">DOC</span>
                         </a>
                     `;
@@ -124,14 +85,14 @@ let main = new Vue({
 
                 if (data[i].pdf) {
                     file += `
-                        <a href="./assets/${ data[i].pdf }" download>
+                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }">
                             <span class="badge badge-danger">PDF</span>
                         </a>
                     `;
                 }
                 if (data[i].opt) {
                     file += `
-                        <a href="./assets/${ data[i].opt }" download>
+                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }">
                             <span class="badge badge-info">OPT</span>
                         </a>
                     `;
@@ -171,72 +132,6 @@ let main = new Vue({
 
             return tpl;
         },
-        CreateNewsTable(lead, data) {
-            let content = '';
-
-            if (lead !== '') {
-                lead = `<div class="alert alert-success" role="alert"> ${ lead } </div>`;
-            }
-
-            for (let i = data.length - 1; i >= 0; i--) {
-                let file = '';
-                let newpost = '';
-
-                if (data[i].docx) {
-                    file += `
-                        <a href="./assets/${ data[i].docx }" download>
-                            ${ data[i].title }
-                        </a>
-                    `;
-                }
-                else if (data[i].doc) {
-                    file += `
-                        <a href="./assets/${ data[i].doc }" download>
-                            ${ data[i].title }
-                        </a>
-                    `;
-                }
-
-                if (data[i].pdf) {
-                    file += `
-                        <a href="./assets/${ data[i].pdf }" download>
-                            ${ data[i].title }
-                        </a>
-                    `;
-                }
-                if (data[i].opt) {
-                    file += `
-                        <a href="./assets/${ data[i].opt }" download>
-                            ${ data[i].title }
-                        </a>
-                    `;
-                }
-
-                if (i < 3) newpost = 'class="new-post"';
-                content += `
-                    <li ${ newpost }>
-                        <small>${ data[i].date }</small> <strong style="font-size: 1.2rem;">${ file }</strong><br>
-                        ${ data[i].content }
-                    </li>
-                `;
-            }
-
-            let tpl =
-                `
-                    ${ lead }
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div id="news-list">
-                                <ul>
-                                    ${ content }
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-            return tpl;
-        },
         CreateMainNewsTable(lead, data) {
             let content = '';
 
@@ -264,7 +159,7 @@ let main = new Vue({
                 }
 
                 content += `
-                    <a href="${ filePath }" download class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="${ filePath }" download="${ data[i].title }" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">
                                 <strong style="font-size: 1.2rem; color: var(--main-color);">${ data[i].title }</strong>
@@ -286,7 +181,120 @@ let main = new Vue({
                 `;
 
             return tpl;
-        }
+        },
+        CreateNewsTable(lead, data) {
+            let content = '';
+
+            if (lead !== '') {
+                lead = `<div class="alert alert-success" role="alert"> ${ lead } </div>`;
+            }
+
+            for (let i = data.length - 1; i >= 0; i--) {
+                let file = '';
+                let newpost = '';
+
+                if (data[i].docx) {
+                    file += `
+                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }">
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+                else if (data[i].doc) {
+                    file += `
+                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }">
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+
+                if (data[i].pdf) {
+                    file += `
+                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }">
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+                if (data[i].opt) {
+                    file += `
+                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }">
+                            ${ data[i].title }
+                        </a>
+                    `;
+                }
+
+                if (i >= data.length - 3) newpost = 'class="new-post"'; // 前三個會有打勾符號
+                content += `
+                    <li ${ newpost }>
+                        <small>${ data[i].date }</small> <strong style="font-size: 1.2rem;">${ file }</strong><br>
+                        ${ data[i].content }
+                    </li>
+                `;
+            }
+
+            let tpl =
+                `
+                    ${ lead }
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="news-list">
+                                <ul>
+                                    ${ content }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            return tpl;
+        },
+        getDBFile(index, category) {
+            let self = this;
+
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: './getTxtData.php',
+                    type: 'POST',
+                    data: {
+                        index: index,
+                        category: category
+                    },
+                    success: function(res) {
+                        resolve(self.setData(res));
+                    },
+                    error: function(err) {
+                        reject(err);
+                    }
+                });
+            });
+        },
+        getMetaDesc(metaName='description') {
+            let metas = document.getElementsByTagName('meta');
+
+            for (let i = 0; i < metas.length; i++) {
+                if (metas[i].getAttribute('name') === metaName) {
+                    return metas[i].getAttribute('content');
+                }
+            }
+
+            return '';
+        },
+        setData(rawData) {
+            let dataFragment = rawData.split(';;;');
+            let output = [];
+            for (let i = 0; i < dataFragment.length - 1; i++) {
+                let data = JSON.parse(dataFragment[i]);
+
+                if (data !== null)
+                    // 108.7.2 更新前上傳的資料：`status` === null
+                    // 108.7.2 更新後上傳的資料：`status` === 1
+                    // 已刪除：`status` === 0
+                    if (data.status !== 0)
+                        output.push(data);
+            }
+
+            return output;
+        },
     },
     components: {
         'MainFooter': MainFooter,
