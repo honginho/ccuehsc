@@ -1,9 +1,11 @@
 <?php
 
+require('config.php');
+
 if (isset($_POST["auth_edit"]) && trim($_POST["auth_edit"]) != "") {
     $password = htmlspecialchars($_POST["auth_edit"]);
 
-    if ($password == "a") {
+    if ($password == $_ADMIN_PASSWORD) {
         if (isset($_POST["category_edit_item"]) && isset($_POST["subpage_edit_item"]) && isset($_POST["title_edit_item"]) && isset($_POST["filename_edit_item"]) && isset($_POST["filenameExtension_edit_item"])) {
             // 取得 $_POST 資料
             $index = $_POST["subpage_edit_item"]; // 取得 index

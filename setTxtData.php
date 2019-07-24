@@ -1,9 +1,11 @@
 <?php
 
+require('config.php');
+
 if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
     $password = htmlspecialchars($_POST["auth"]);
 
-    if ($password == "a") {
+    if ($password == $_ADMIN_PASSWORD) {
         if (isset($_POST["title"]) && isset($_POST["category"]) && isset($_POST["subpage"])) {
             date_default_timezone_set("Asia/Taipei");
             $now = new DateTime();
