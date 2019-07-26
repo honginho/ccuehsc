@@ -22,7 +22,7 @@ const MainFooter = {
 const MainHeader = {
     template: `
         <section id="banner">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+            <nav class="navbar navbar-expand-lg navbar-dark py-0">
                 <a id="nav-logo" class="navbar-brand d-flex align-items-end" href="./index.html">
                     <img src="./img/cculogo.png" alt="CCU LOGO">
                     <span style="padding-left: 2px; font-family: 'DFKai-sb'; font-weight: bold;">環安中心</span>

@@ -35,6 +35,10 @@ table i {
     color: var(--main-color);
 }
 
+#banner .navbar.navbar-dark {
+    background-color: var(--main-color) !important;
+}
+
 .table.table-td-larger td {
     padding: 1.5rem .75rem;
 }
