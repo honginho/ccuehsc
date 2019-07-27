@@ -65,7 +65,7 @@ let main = new Vue({
                 if (data[i].docx) {
                     filename = data[i].docx;
                     file += `
-                        <a href="./assets/${ filename }" download="${ data[i].title }">
+                        <a href="./assets/${ filename }" download="${ data[i].title }.docx">
                             <span class="badge badge-primary">DOCX</span>
                         </a>
                     `;
@@ -74,7 +74,7 @@ let main = new Vue({
                 else if (data[i].doc) {
                     filename = data[i].doc;
                     file += `
-                        <a href="./assets/${ filename }" download="${ data[i].title }">
+                        <a href="./assets/${ filename }" download="${ data[i].title }.doc">
                             <span class="badge badge-primary">DOC</span>
                         </a>
                     `;
@@ -84,7 +84,7 @@ let main = new Vue({
                 if (data[i].pdf) {
                     filename = data[i].pdf;
                     file += `
-                        <a href="./assets/${ filename }" download="${ data[i].title }">
+                        <a href="./assets/${ filename }" download="${ data[i].title }.pdf">
                             <span class="badge badge-danger">PDF</span>
                         </a>
                     `;
@@ -93,7 +93,7 @@ let main = new Vue({
                 if (data[i].opt) {
                     filename = data[i].opt;
                     file += `
-                        <a href="./assets/${ filename }" download="${ data[i].title }">
+                        <a href="./assets/${ filename }" download="${ data[i].title }.opt">
                             <span class="badge badge-info">OPT</span>
                         </a>
                     `;

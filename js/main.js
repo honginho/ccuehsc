@@ -70,14 +70,14 @@ let main = new Vue({
 
                 if (data[i].docx) {
                     file += `
-                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }.docx">
                             <span class="badge badge-primary">DOCX</span>
                         </a>
                     `;
                 }
                 else if (data[i].doc) {
                     file += `
-                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }.doc">
                             <span class="badge badge-primary">DOC</span>
                         </a>
                     `;
@@ -85,14 +85,14 @@ let main = new Vue({
 
                 if (data[i].pdf) {
                     file += `
-                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }.pdf">
                             <span class="badge badge-danger">PDF</span>
                         </a>
                     `;
                 }
                 if (data[i].opt) {
                     file += `
-                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }.opt">
                             <span class="badge badge-info">OPT</span>
                         </a>
                     `;
@@ -142,24 +142,28 @@ let main = new Vue({
             let limit = (data.length - 6 >= 0) ? (data.length-6) : 0;
             for (let i = data.length - 1; i >= limit; i--) {
                 let filePath = '';
-                let newpost = '';
+                let fileExt = '';
 
                 if (data[i].docx) {
                     filePath += `./assets/${ data[i].docx }`;
+                    fileExt = '.docx';
                 }
                 else if (data[i].doc) {
                     filePath += `./assets/${ data[i].doc }`;
+                    fileExt = '.doc';
                 }
 
                 if (data[i].pdf) {
                     filePath += `./assets/${ data[i].pdf }`;
+                    fileExt = '.pdf';
                 }
                 if (data[i].opt) {
                     filePath += `./assets/${ data[i].opt }`;
+                    fileExt = '.opt';
                 }
 
                 content += `
-                    <a href="${ filePath }" download="${ data[i].title }" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="${ filePath }" download="${ data[i].title }${ fileExt }" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">
                                 <strong style="font-size: 1.2rem; color: var(--main-color);">${ data[i].title }</strong>
@@ -195,14 +199,14 @@ let main = new Vue({
 
                 if (data[i].docx) {
                     file += `
-                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }.docx">
                             ${ data[i].title }
                         </a>
                     `;
                 }
                 else if (data[i].doc) {
                     file += `
-                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }.doc">
                             ${ data[i].title }
                         </a>
                     `;
@@ -210,14 +214,14 @@ let main = new Vue({
 
                 if (data[i].pdf) {
                     file += `
-                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }.pdf">
                             ${ data[i].title }
                         </a>
                     `;
                 }
                 if (data[i].opt) {
                     file += `
-                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }">
+                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }.opt">
                             ${ data[i].title }
                         </a>
                     `;
