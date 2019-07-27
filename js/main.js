@@ -168,7 +168,7 @@ let main = new Vue({
                             <h5 class="mb-1">
                                 <strong style="font-size: 1.2rem; color: var(--main-color);">${ data[i].title }</strong>
                             </h5>
-                            <small class="text-muted">${ data[i].date }</small>
+                            <small class="text-muted" style="min-width: 72px;">${ data[i].date }</small>
                         </div>
                         <p class="mb-1 text-truncate" title="${ data[i].content }">${ data[i].content }</p>
                     </a>
