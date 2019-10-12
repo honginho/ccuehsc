@@ -9,10 +9,45 @@ import {
 const MainFooter = {
     template: `
         <footer>
-            <div class="text-center py-3 text-white">
+            <!--<div class="text-white">
                 <address>版權所有 &copy; 2018 國立中正大學 環境保護及工業安全衛生中心 </address>
                 <p>621 嘉義縣民雄鄉大學路168號 (05)2720411 Fax：(05)2722249</p>
                 <p class="mb-0">最後更新日期：2019/7/21</p>
+            </div>-->
+            <div class="container-fluid p-5 text-white text-center">
+                <div class="row">
+                    <div class="col-md-4 p-2">
+                        <h3 class="pb-2" style="letter-spacing: 4px">關於我們</h3>
+                        <p style="padding: .75rem 0;">國立中正大學以獨特、卓越、前瞻的思維培養全方位人才，積極發展成為國際一流大學。本校基於關心生態環境保護、重視實驗場所安全衛生等議題，為達到「生態保護、節能減碳、永續發展」的綠色大學目標。</p>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <h3 class="pb-2" style="letter-spacing: 4px">聯絡資訊</h3>
+                        <p style="padding: .75rem 0;">
+                            E-mail：chepec@ccu.edu.tw<br>
+                            621嘉義縣民雄鄉大學路168號<br>
+                            電話：05-2720411<br>
+                            傳真：05-2722249
+                        </p>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <h3 class="pb-2" style="letter-spacing: 4px">友站連結</h3>
+                        <div class="list-group list-group-flush">
+                            <a class="list-group-item text-overflow-ellipsis"
+                               href="https://miswww1.ccu.edu.tw/ccuehsc/index.php"
+                               target="_blank"
+                               title="實驗室暨化學品管理系統">
+                                實驗室暨化學品管理系統
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="copyright">
+                    <p><hd title="Honginho" style="cursor: pointer">版權所有</hd> &copy; 2019 國立中正大學 環境保護及工業安全衛生中心</p>
+                    <p class="mb-0">最後更新日期：2019/10/12</p>
+                </div>
             </div>
         </footer>
     `

@@ -78,7 +78,36 @@ table i {
 }
 
 footer {
-    background-color: var(--main-color) !important;
+    background-color: var(--c-font) !important;
+}
+
+footer .row > div > *:not(h3) {
+    color: #ccc;
+    letter-spacing: 2px;
+}
+
+footer .row p {
+    line-height: 1.5rem;
+}
+
+footer .list-group-item {
+    background-color: unset;
+    border-top: none;
+    border-color: #666;
+    color: #5ebfcc;
+}
+
+footer .list-group-item:hover {
+    color: #17b4e9;
+}
+
+footer hr {
+    border-color: #888;
+}
+
+footer .copyright {
+    color: #ccc;
+    letter-spacing: 2px;
 }
 
 /* Self definition */
@@ -141,6 +170,12 @@ footer {
     height: 25px;
     border-radius: 50%;
     content: '✓';
+}
+
+.text-overflow-ellipsis {
+    overflow : hidden;
+    text-overflow : ellipsis;
+    white-space : nowrap;
 }
 
 
