@@ -90,10 +90,10 @@ let main = new Vue({
                         </a>
                     `;
                 }
-                if (data[i].opt) {
+                if (data[i].odt) {
                     file += `
-                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }.opt">
-                            <span class="badge badge-info">OPT</span>
+                        <a href="./assets/${ data[i].odt }" download="${ data[i].title }.odt">
+                            <span class="badge badge-info">ODT</span>
                         </a>
                     `;
                 }
@@ -157,9 +157,9 @@ let main = new Vue({
                     filePath += `./assets/${ data[i].pdf }`;
                     fileExt = '.pdf';
                 }
-                if (data[i].opt) {
-                    filePath += `./assets/${ data[i].opt }`;
-                    fileExt = '.opt';
+                if (data[i].odt) {
+                    filePath += `./assets/${ data[i].odt }`;
+                    fileExt = '.odt';
                 }
 
                 content += `
@@ -219,9 +219,9 @@ let main = new Vue({
                         </a>
                     `;
                 }
-                if (data[i].opt) {
+                if (data[i].odt) {
                     file += `
-                        <a href="./assets/${ data[i].opt }" download="${ data[i].title }.opt">
+                        <a href="./assets/${ data[i].odt }" download="${ data[i].title }.odt">
                             ${ data[i].title }
                         </a>
                     `;

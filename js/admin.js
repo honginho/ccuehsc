@@ -90,14 +90,14 @@ let main = new Vue({
                     `;
                     filenameExtension = 'pdf';
                 }
-                if (data[i].opt) {
-                    filename = data[i].opt;
+                if (data[i].odt) {
+                    filename = data[i].odt;
                     file += `
-                        <a href="./assets/${ filename }" download="${ data[i].title }.opt">
-                            <span class="badge badge-info">OPT</span>
+                        <a href="./assets/${ filename }" download="${ data[i].title }.odt">
+                            <span class="badge badge-info">ODT</span>
                         </a>
                     `;
-                    filenameExtension = 'opt';
+                    filenameExtension = 'odt';
                 }
 
                 let prepareData = `['${cat}', '${sub}', '${data[i].title}', '${filename}', '${filenameExtension}']`;

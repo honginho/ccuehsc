@@ -23,7 +23,7 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
             $extension = end($filenameFragment);
             $filename = "CCU-EHSC-" . $time . "." . $extension;
 
-            if ($extension != 'doc' && $extension != 'docx' && $extension != 'opt' && $extension != 'pdf') {
+            if ($extension != 'doc' && $extension != 'docx' && $extension != 'odt' && $extension != 'pdf') {
                 echo "錯誤: 檔案格式錯誤";
                 header("refresh:2; url=beer.html", true, 301);
                 exit();
