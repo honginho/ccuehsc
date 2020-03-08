@@ -41,11 +41,20 @@ const MainFooter = {
 
                 <div class="copyright">
                     <p><hd title="Honginho" style="cursor: pointer">版權所有</hd> &copy; 2019 國立中正大學 環境保護及工業安全衛生中心</p>
-                    <p class="mb-0">最後更新日期：2019/10/12</p>
+                    <p class="mb-0" v-html="updateDate"></p>
                 </div>
             </div>
         </footer>
-    `
+    `,
+    computed: {
+        updateDate: function () {
+            let date = new Date();
+            let yyyy = date.getFullYear();
+            let mm = date.getMonth() + 1;
+            mm = (mm > 9 ? '' : '0') + mm;
+            return `最後更新日期：${yyyy}/${mm}/01`;
+        }
+    }
 };
 
 // 頁首 (( banner, logo 之類的
