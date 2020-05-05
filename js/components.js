@@ -19,7 +19,7 @@ const MainFooter = {
                         <h3 class="pb-2" style="letter-spacing: 4px">聯絡資訊</h3>
                         <p style="padding: .75rem 0;">
                             E-mail：chepec@ccu.edu.tw<br>
-                            621嘉義縣民雄鄉大學路168號<br>
+                            621301嘉義縣民雄鄉大學路168號<br>
                             電話：05-2720411<br>
                             傳真：05-2722249
                         </p>
@@ -40,7 +40,7 @@ const MainFooter = {
                 <hr>
 
                 <div class="copyright">
-                    <p><hd title="Honginho" style="cursor: pointer">版權所有</hd> &copy; 2019 國立中正大學 環境保護及工業安全衛生中心</p>
+                    <p><hd title="Honginho" style="cursor: pointer">版權所有</hd> &copy; <span v-html="getYearForCopyright"></span> 國立中正大學 環境保護及工業安全衛生中心</p>
                     <p class="mb-0" v-html="updateDate"></p>
                 </div>
             </div>
@@ -53,7 +53,10 @@ const MainFooter = {
             let mm = date.getMonth() + 1;
             mm = (mm > 9 ? '' : '0') + mm;
             return `最後更新日期：${yyyy}/${mm}/01`;
-        }
+        },
+        getYearForCopyright: function () {
+            return new Date().getFullYear();
+        },
     }
 };
 
