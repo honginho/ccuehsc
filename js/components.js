@@ -28,7 +28,7 @@ const MainFooter = {
                         <h3 class="pb-2" style="letter-spacing: 4px">友站連結</h3>
                         <div class="list-group list-group-flush">
                             <a class="list-group-item text-overflow-ellipsis"
-                               href="https://miswww1.ccu.edu.tw/ccuehsc/index.php"
+                               href="https://www026190.ccu.edu.tw/ccuehsc/index.php"
                                target="_blank"
                                title="實驗室暨化學品管理系統">
                                 實驗室暨化學品管理系統
