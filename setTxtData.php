@@ -15,6 +15,8 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
 
             // 取得 $_POST 資料
             $title = htmlspecialchars($_POST["title"]); // 取得標題
+            if (isset($_POST["titleEng"]))
+                $titleEng = htmlspecialchars($_POST["titleEng"]); // 取得英文標題
             $category = htmlspecialchars($_POST["category"]); // 取得分類
             $subpage = htmlspecialchars($_POST["subpage"]); // 取得分類頁面
             $filepath = "./assets/database/" . $category . $subpage . ".txt";
@@ -31,22 +33,45 @@ if (isset($_POST["auth"]) && trim($_POST["auth"]) != "") {
             else {
                 // 資料轉 json 格式
                 if ($category != "News") {
-                    $dataToJson = [
-                        "title" => $title,
-                        "date" => $dateDB,
-                        $extension => $filename,
-                        "status" => 1
-                    ];
+                    if (isset($titleEng) && $titleEng != "") {
+                        $dataToJson = [
+                            "title" => $title,
+                            "titleEng" => $titleEng,
+                            "date" => $dateDB,
+                            $extension => $filename,
+                            "status" => 1
+                        ];
+                    }
+                    else {
+                        $dataToJson = [
+                            "title" => $title,
+                            "date" => $dateDB,
+                            $extension => $filename,
+                            "status" => 1
+                        ];
+                    }
                 }
                 else {
                     $content = htmlspecialchars($_POST["content"]); // 取得最新消息內容
-                    $dataToJson = [
-                        "title" => $title,
-                        "date" => $dateDB,
-                        "content" => $content,
-                        $extension => $filename,
-                        "status" => 1
-                    ];
+                    if (isset($titleEng) && $titleEng != "") {
+                        $dataToJson = [
+                            "title" => $title,
+                            "titleEng" => $titleEng,
+                            "date" => $dateDB,
+                            "content" => $content,
+                            $extension => $filename,
+                            "status" => 1
+                        ];
+                    }
+                    else {
+                        $dataToJson = [
+                            "title" => $title,
+                            "date" => $dateDB,
+                            "content" => $content,
+                            $extension => $filename,
+                            "status" => 1
+                        ];
+                    }
                 }
 
                 $data = json_encode($dataToJson, JSON_UNESCAPED_UNICODE) . ";;;\n";

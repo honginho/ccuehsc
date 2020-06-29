@@ -57,6 +57,12 @@ let main = new Vue({
             }
         }
     },
+    computed: {
+        isEnglish() {
+            let lang = new URLSearchParams(window.location.search).get('lang');
+            return (lang == 'en') ? true : false;
+        }
+    },
     methods: {
         CreateFilesTable(lead, data) {
             let content = '';
@@ -67,17 +73,21 @@ let main = new Vue({
 
             for (let i = data.length - 1; i >= 0; i--) {
                 let file = '';
+                let titleInCorrectLang = data[i].title;
+                if (this.isEnglish)
+                    if (data[i].titleEng != null)
+                        titleInCorrectLang = data[i].titleEng;
 
                 if (data[i].docx) {
                     file += `
-                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }.docx">
+                        <a href="./assets/${ data[i].docx }" download="${ titleInCorrectLang }.docx">
                             <span class="badge badge-primary">DOCX</span>
                         </a>
                     `;
                 }
                 else if (data[i].doc) {
                     file += `
-                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }.doc">
+                        <a href="./assets/${ data[i].doc }" download="${ titleInCorrectLang }.doc">
                             <span class="badge badge-primary">DOC</span>
                         </a>
                     `;
@@ -85,14 +95,14 @@ let main = new Vue({
 
                 if (data[i].pdf) {
                     file += `
-                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }.pdf">
+                        <a href="./assets/${ data[i].pdf }" download="${ titleInCorrectLang }.pdf">
                             <span class="badge badge-danger">PDF</span>
                         </a>
                     `;
                 }
                 if (data[i].odt) {
                     file += `
-                        <a href="./assets/${ data[i].odt }" download="${ data[i].title }.odt">
+                        <a href="./assets/${ data[i].odt }" download="${ titleInCorrectLang }.odt">
                             <span class="badge badge-info">ODT</span>
                         </a>
                     `;
@@ -101,7 +111,7 @@ let main = new Vue({
                 content += `
                     <tr>
                         <td>
-                            ${ data[i].title }
+                            ${ titleInCorrectLang }
                         </td>
                         <td>
                             ${ data[i].date }
@@ -113,15 +123,25 @@ let main = new Vue({
                 `;
             }
 
+            let thead = `
+                <th scope="col">檔案名稱</th>
+                <th scope="col">上傳日期</th>
+                <th scope="col">下載區</th>
+            `;
+            if (this.isEnglish)
+                thead = `
+                    <th scope="col">File name</th>
+                    <th scope="col">Upload date</th>
+                    <th scope="col">Upload file</th>
+                `;
+
             let tpl =
                 `
                     ${ lead }
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">檔案名稱</th>
-                                <th scope="col">上傳日期</th>
-                                <th scope="col">下載區</th>
+                                ${ thead }
                             </tr>
                         </thead>
                         <tbody>
@@ -143,6 +163,10 @@ let main = new Vue({
             for (let i = data.length - 1; i >= limit; i--) {
                 let filePath = '';
                 let fileExt = '';
+                let titleInCorrectLang = data[i].title;
+                if (this.isEnglish)
+                    if (data[i].titleEng != null)
+                        titleInCorrectLang = data[i].titleEng;
 
                 if (data[i].docx) {
                     filePath += `./assets/${ data[i].docx }`;
@@ -163,10 +187,10 @@ let main = new Vue({
                 }
 
                 content += `
-                    <a href="${ filePath }" download="${ data[i].title }${ fileExt }" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="${ filePath }" download="${ titleInCorrectLang }${ fileExt }" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">
-                                <strong style="font-size: 1.2rem; color: var(--main-color);">${ data[i].title }</strong>
+                                <strong style="font-size: 1.2rem; color: var(--main-color);">${ titleInCorrectLang }</strong>
                             </h5>
                             <small class="text-muted" style="min-width: 72px;">${ data[i].date }</small>
                         </div>
@@ -196,33 +220,37 @@ let main = new Vue({
             for (let i = data.length - 1; i >= 0; i--) {
                 let file = '';
                 let newpost = '';
+                let titleInCorrectLang = data[i].title;
+                if (this.isEnglish)
+                    if (data[i].titleEng != null)
+                        titleInCorrectLang = data[i].titleEng;
 
                 if (data[i].docx) {
                     file += `
-                        <a href="./assets/${ data[i].docx }" download="${ data[i].title }.docx">
-                            ${ data[i].title }
+                        <a href="./assets/${ data[i].docx }" download="${ titleInCorrectLang }.docx">
+                            ${ titleInCorrectLang }
                         </a>
                     `;
                 }
                 else if (data[i].doc) {
                     file += `
-                        <a href="./assets/${ data[i].doc }" download="${ data[i].title }.doc">
-                            ${ data[i].title }
+                        <a href="./assets/${ data[i].doc }" download="${ titleInCorrectLang }.doc">
+                            ${ titleInCorrectLang }
                         </a>
                     `;
                 }
 
                 if (data[i].pdf) {
                     file += `
-                        <a href="./assets/${ data[i].pdf }" download="${ data[i].title }.pdf">
-                            ${ data[i].title }
+                        <a href="./assets/${ data[i].pdf }" download="${ titleInCorrectLang }.pdf">
+                            ${ titleInCorrectLang }
                         </a>
                     `;
                 }
                 if (data[i].odt) {
                     file += `
-                        <a href="./assets/${ data[i].odt }" download="${ data[i].title }.odt">
-                            ${ data[i].title }
+                        <a href="./assets/${ data[i].odt }" download="${ titleInCorrectLang }.odt">
+                            ${ titleInCorrectLang }
                         </a>
                     `;
                 }

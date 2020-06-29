@@ -30,46 +30,61 @@
                     <div class="col-md-9 col-lg-10">
                         <nav>
                             <div id="sub-nav" role="tablist" class="nav nav-tabs">
-                                <a class="nav-item nav-link active show" id="sub-nav-1-0-tab" data-toggle="tab" href="#sub-nav-1-0" role="tab" aria-controls="sub-nav-1-0" aria-selected="true">
-                                    環安衛政策
-                                </a>
-                                <a class="nav-item nav-link " id="sub-nav-1-1-tab" data-toggle="tab" href="#sub-nav-1-1" role="tab" aria-controls="sub-nav-1-1" aria-selected="false">
-                                    歷史沿革
-                                </a>
-                                <a class="nav-item nav-link " id="sub-nav-1-2-tab" data-toggle="tab" href="#sub-nav-1-2" role="tab" aria-controls="sub-nav-1-2" aria-selected="false">
-                                    組織編制
-                                </a>
-                                <a class="nav-item nav-link " id="sub-nav-1-3-tab" data-toggle="tab" href="#sub-nav-1-3" role="tab" aria-controls="sub-nav-1-3" aria-selected="false">
-                                    歷任中心主任
-                                </a>
+                                <template v-if="isEnglish">
+                                    <a class="nav-item nav-link active show" id="sub-nav-1--1-tab" data-toggle="tab" href="#sub-nav-1--1" role="tab" aria-controls="sub-nav-1--1" aria-selected="true">
+                                        About CCU Environmental Hygiene and Safety (EHS) center
+                                    </a>
+                                </template>
+                                <template v-else>
+                                    <a class="nav-item nav-link active show" id="sub-nav-1-0-tab" data-toggle="tab" href="#sub-nav-1-0" role="tab" aria-controls="sub-nav-1-0" aria-selected="true">
+                                        環安衛政策
+                                    </a>
+                                    <a class="nav-item nav-link " id="sub-nav-1-1-tab" data-toggle="tab" href="#sub-nav-1-1" role="tab" aria-controls="sub-nav-1-1" aria-selected="false">
+                                        歷史沿革
+                                    </a>
+                                    <a class="nav-item nav-link " id="sub-nav-1-2-tab" data-toggle="tab" href="#sub-nav-1-2" role="tab" aria-controls="sub-nav-1-2" aria-selected="false">
+                                        組織編制
+                                    </a>
+                                    <a class="nav-item nav-link " id="sub-nav-1-3-tab" data-toggle="tab" href="#sub-nav-1-3" role="tab" aria-controls="sub-nav-1-3" aria-selected="false">
+                                        歷任中心主任
+                                    </a>
+                                </template>
                             </div>
                         </nav>
                         <div id="nav-tabContent" class="tab-content p-3 bg-white border border-top-0 rounded-bottom shadow-sm">
-                            <div class="tab-pane fade active show" id="sub-nav-1-0" role="tabpanel" aria-labelledby="sub-nav-1-0-tab">
-                                <!-- 環安衛政策 -->
-                                <img src="./img/certificate.jpg" class="img-fluid img-thumbnail rounded" alt="policy">
-                            </div>
-                            <div class="tab-pane fade " id="sub-nav-1-1" role="tabpanel" aria-labelledby="sub-nav-1-1-tab">
-                                <!-- 歷史沿革 -->
-                                <p>
-                                    國立中正大學創校之初便設有「環境保護組」，原隸屬總務處；後更名為「環境保護小組」，直至民國87年12月依學校組織規程改置為現今之「環境保護及工業安全衛生中心」，為一級單位，辦理校園環境保護與實驗場所安全衛生等事項。本中心下設兩組，分別為「環境保護組」及「安全衛生組」。
-                                </p>
-                            </div>
-                            <div class="tab-pane fade " id="sub-nav-1-2" role="tabpanel" aria-labelledby="sub-nav-1-2-tab">
-                                <!-- 組織編制 -->
-                                <p>
-                                    置中心主任1人、組長2人、技正1人、技士1人、技佐2人、專案人員1人、技工1人及工友1人。
-                                </p>
-                            </div>
-                            <div class="tab-pane fade " id="sub-nav-1-3" role="tabpanel" aria-labelledby="sub-nav-1-3-tab">
-                                <!-- 歷任中心主任 -->
-                                <p>
-                                    黃奇 1999/4~2004/7 <br>
-                                    張仁瑞教授 2004/8~2006/6 <br>
-                                    敖仲寧教授 2008/7~2016/1 <br>
-                                    許昺慕教授 2016/2~迄今
-                                </p>
-                            </div>
+                            <template v-if="isEnglish">
+                                <div class="tab-pane fade active show" id="sub-nav-1--1" role="tabpanel" aria-labelledby="sub-nav-1--1-tab">
+                                    <!-- eng about -->
+                                    CCU Environmental Hygiene and Safety (EHS) center assists the university community in providing and maintaining a safe and healthy work environment for students, faculty, and staff. We are dedicated to providing professional service in the evaluation, development, implementation, and operation of comprehensive environmental health and safety programs to injuries prevention, illnesses reduction, and environmental protection on our campus.
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="tab-pane fade active show" id="sub-nav-1-0" role="tabpanel" aria-labelledby="sub-nav-1-0-tab">
+                                    <!-- 環安衛政策 -->
+                                    <img src="./img/certificate.jpg" class="img-fluid img-thumbnail rounded" alt="policy">
+                                </div>
+                                <div class="tab-pane fade " id="sub-nav-1-1" role="tabpanel" aria-labelledby="sub-nav-1-1-tab">
+                                    <!-- 歷史沿革 -->
+                                    <p>
+                                        國立中正大學創校之初便設有「環境保護組」，原隸屬總務處；後更名為「環境保護小組」，直至民國87年12月依學校組織規程改置為現今之「環境保護及工業安全衛生中心」，為一級單位，辦理校園環境保護與實驗場所安全衛生等事項。本中心下設兩組，分別為「環境保護組」及「安全衛生組」。
+                                    </p>
+                                </div>
+                                <div class="tab-pane fade " id="sub-nav-1-2" role="tabpanel" aria-labelledby="sub-nav-1-2-tab">
+                                    <!-- 組織編制 -->
+                                    <p>
+                                        置中心主任1人、組長2人、技正1人、技士1人、技佐2人、專案人員1人、技工1人及工友1人。
+                                    </p>
+                                </div>
+                                <div class="tab-pane fade " id="sub-nav-1-3" role="tabpanel" aria-labelledby="sub-nav-1-3-tab">
+                                    <!-- 歷任中心主任 -->
+                                    <p>
+                                        黃奇 1999/4~2004/7 <br>
+                                        張仁瑞教授 2004/8~2006/6 <br>
+                                        敖仲寧教授 2008/7~2016/1 <br>
+                                        許昺慕教授 2016/2~迄今
+                                    </p>
+                                </div>
+                            </template>
                         </div>
                     </div>
                 </div>

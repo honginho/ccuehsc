@@ -61,6 +61,10 @@ let main = new Vue({
                 let file = '';
                 let filename = '';
                 let filenameExtension = '';
+                let titleEng = '';
+                if (data[i].titleEng != null) {
+                    titleEng = '<br>' + data[i].titleEng;
+                }
 
                 if (data[i].docx) {
                     filename = data[i].docx;
@@ -106,6 +110,7 @@ let main = new Vue({
                     <tr>
                         <td>
                             ${ data[i].title }
+                            ${ titleEng }
                         </td>
                         <td>
                             ${ data[i].date }
@@ -152,7 +157,6 @@ let main = new Vue({
 
             return tpl;
         },
-        testla() {alert('test ttttttttttttt')},
         getTargetData(cat, sub) {
             this.getDBFile(sub, cat).then(res => {
                 let details = this.CreateTargetTable(res, cat, sub);
