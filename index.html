@@ -123,7 +123,7 @@
         #show-sidebar {
             position: fixed;
             left: 0;
-            top: 50vh;
+            top: 43vh;
             border-radius: 0 4px 4px 0px;
             width: 26px;
             transition-delay: 0.3s;
@@ -523,7 +523,7 @@
     </style>
     <style>
         #show-sidebar {
-            padding: 2.25rem 0.2rem;
+            padding: 3.25rem 1rem;
         }
 
         #show-sidebar:hover {
@@ -576,87 +576,172 @@
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-                <div style="width: 100%;">
-                    <div class="sidebar-brand">
-                        <b style="width: 100%; color: #b8bfce; font-size: 1.2rem; letter-spacing: .1rem;">資訊分類清單</b>
-                        <div id="close-sidebar">
-                            <i class="fas fa-times"></i>
+                <template v-if="isEnglish">
+                    <div style="width: 100%;">
+                        <div class="sidebar-brand">
+                            <b style="width: 100%; color: #b8bfce; font-size: 1.2rem; letter-spacing: .1rem;">Lists</b>
+                            <div id="close-sidebar">
+                                <i class="fas fa-times"></i>
+                            </div>
                         </div>
+                        <!-- sidebar-search  -->
+                        <div class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="news.html?lang=en">
+                                        <!-- <i class="fas fa-fire"></i> -->
+                                        <span>Latest news</span>
+                                        <!-- <span class="badge badge-pill badge-primary">Beta</span> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html?lang=en">
+                                        <span>About EHS center</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="team.html?lang=en">
+                                        <span>EHS divisions</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="trash.html?lang=en">
+                                        <span>Laboratory waste management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="hygiene.html?lang=en">
+                                        <span>Laboratory safety & health management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="animal.html?lang=en">
+                                        <span>Laboratory animal management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biosecurity.html?lang=en">
+                                        <span>Biosafety management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="radioprotection.html?lang=en">
+                                        <span>Radiation protection & management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="labor-health.html?lang=en">
+                                        <span>Labor management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="train.html?lang=en">
+                                        <span>Educational training</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="stray-animal.html?lang=en">
+                                        <span>Stray dogs on campus</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="drinking-fountain.html?lang=en">
+                                        <span>Drinking fountain management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="download.html?lang=en">
+                                        <span>Form download</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- sidebar-menu  -->
                     </div>
-                    <!-- sidebar-search  -->
-                    <div class="sidebar-menu">
-                        <ul>
-                            <li>
-                                <a href="news.html">
-                                    <!-- <i class="fas fa-fire"></i> -->
-                                    <span>最新消息</span>
-                                    <!-- <span class="badge badge-pill badge-primary">Beta</span> -->
-                                </a>
-                            </li>
-                            <li>
-                                <a href="about.html">
-                                    <span>關於中心</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="team.html">
-                                    <span>業務職掌</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="trash.html">
-                                    <span>實驗廢棄物管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="hygiene.html">
-                                    <span>實驗室安全衛生管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="animal.html">
-                                    <span>實驗動物管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="biosecurity.html">
-                                    <span>生物安全管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="radioprotection.html">
-                                    <span>輻射防護管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="labor-health.html">
-                                    <span>勞工管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="train.html">
-                                    <span>教育訓練</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="stray-animal.html">
-                                    <span>校園流浪犬</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="drinking-fountain.html">
-                                    <span>飲水機管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="download.html">
-                                    <span>表單下載</span>
-                                </a>
-                            </li>
-                        </ul>
+                </template>
+                <template v-else>
+                    <div style="width: 100%;">
+                        <div class="sidebar-brand">
+                            <b style="width: 100%; color: #b8bfce; font-size: 1.2rem; letter-spacing: .1rem;">資訊分類清單</b>
+                            <div id="close-sidebar">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <!-- sidebar-search  -->
+                        <div class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="news.html">
+                                        <!-- <i class="fas fa-fire"></i> -->
+                                        <span>最新消息</span>
+                                        <!-- <span class="badge badge-pill badge-primary">Beta</span> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html">
+                                        <span>關於中心</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="team.html">
+                                        <span>業務職掌</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="trash.html">
+                                        <span>實驗廢棄物管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="hygiene.html">
+                                        <span>實驗室安全衛生管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="animal.html">
+                                        <span>實驗動物管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biosecurity.html">
+                                        <span>生物安全管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="radioprotection.html">
+                                        <span>輻射防護管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="labor-health.html">
+                                        <span>勞工管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="train.html">
+                                        <span>教育訓練</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="stray-animal.html">
+                                        <span>校園流浪犬</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="drinking-fountain.html">
+                                        <span>飲水機管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="download.html">
+                                        <span>表單下載</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- sidebar-menu  -->
                     </div>
-                    <!-- sidebar-menu  -->
-                </div>
+                </template>
                 <!-- <div id="close-sidebar2" class="sidebar-side-close">
                     <div>
                         <i class="fas fa-chevron-left"></i>
