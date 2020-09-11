@@ -20,7 +20,7 @@ let main = new Vue({
     created: function () {
         let id = this.getMetaDesc().split(',')[0]; // e.g. 0 v.s. 9
 
-        if (id > 2 || id == 0) {
+        if (id > 3 || id == 0) {
             let category = this.getMetaDesc().split(',')[1]; // e.g. `News` v.s. `Train`
             let countSubNav = NaviBar[id].details.length; // e.g. 1 v.s. 2
 

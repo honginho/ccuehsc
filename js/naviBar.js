@@ -199,6 +199,11 @@ const Train = {
     link: './train.html',
     details: [
         {
+            title: '109年',
+            titleEng: '',
+            lead: '',
+        },
+        {
             title: '108年',
             titleEng: '',
             lead: '',
@@ -241,6 +246,11 @@ const DrinkingFountain = {
     titleEng: 'Drinking fountain management',
     link: './drinking-fountain.html',
     details: [
+        {
+            title: '109年',
+            titleEng: '',
+            lead: '',
+        },
         {
             title: '108年',
             titleEng: '',
