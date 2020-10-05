@@ -70,7 +70,7 @@ const Team = {
 
 const Trash = {
     id: 3,
-    title: '實驗廢棄物管理',
+    title: '廢棄物管理',
     titleEng: 'Laboratory waste management',
     link: './trash.html',
     details: [
