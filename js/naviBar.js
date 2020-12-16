@@ -1,4 +1,5 @@
-﻿// naviBar.js
+﻿
+// naviBar.js
 'use strict';
 
 const News = {
@@ -271,8 +272,19 @@ const Download = {
     link: './download.html',
     details: [
         {
-            title: '',
-            titleEng: '',
+            title: '安全衛生',
+            titleEng: 'Hygiene and Safety',
+            lead: '',
+            
+        },
+        {
+            title: '環境保護',
+            titleEng: 'Environmental Protection',
+            lead: '',
+        },
+        {
+            title: '綜合業務',
+            titleEng: 'Integrated Services',
             lead: '',
         }
     ]
